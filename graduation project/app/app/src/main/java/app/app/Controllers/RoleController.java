@@ -1,4 +1,4 @@
-package app.app.Controllers;
+/**package app.app.Controllers;
 
 import app.app.Entities.Role;
 import app.app.Repositories.RoleRepo;
@@ -17,4 +17,4 @@ public class RoleController {
     }
 
 }
-
+**/

@@ -17,12 +17,13 @@ import java.util.Properties;
 import java.util.Random;
 
 @Service
-public class DoctorServices {
+public class DoctorServices  {
+
     @Autowired
     private DoctorRepo Doctorrepo ;
 
     // add user
-public  ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
+public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
     ResponseEntity<Boolean> response;
     Doctor temp = Doctorrepo.findByEmail(Doctor.getEmail());
     System.out.println(Doctor.getEmail());
@@ -179,6 +180,7 @@ public  ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
             response = new ResponseEntity<>("Not Allowed", HttpStatus.BAD_REQUEST);
             return response;
         }
+
     }
 
 
@@ -190,6 +192,39 @@ public  ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
          logoutresponse =new ResponseEntity<>(true,HttpStatus.OK);
          return logoutresponse;
     }
+   /** @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+    public Doctor findByEmail(String email){
+        return Doctorrepo.findByEmail(email);
+    }
+
+    public Doctor save(UserRegistrationDto registration){
+        Doctor user = new Doctor();
+        user.setFname(registration.getFname());
+        user.setLname(registration.getLname());
+        user.setEmail(registration.getEmail());
+        user.setPassword(passwordEncoder.encode(registration.getPassword()));
+        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
+        return Doctorrepo.save(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Doctor user = Doctorrepo.findByEmail(email);
+        if (user == null){
+            throw new UsernameNotFoundException("Invalid username or password.");
+        }
+        return new org.springframework.security.core.userdetails.User(user.getEmail(),
+                user.getPassword(),
+                mapRolesToAuthorities(user.getRoles()));
+    }
+
+    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+        return roles.stream()
+                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .collect(Collectors.toList());
+    }**/
 
 
 }

@@ -25,7 +25,7 @@ public class Test {
     @ManyToOne
     @JoinColumn
     @JsonBackReference
-    private Patient patient1;
+    private Patient patient;
 
     public String getLabAddress() {
         return labAddress;
@@ -36,11 +36,11 @@ public class Test {
     }
 
     public Patient getPatient() {
-        return patient1;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient1 = patient;
+        this.patient = patient;
     }
 
    /* public Test() {

@@ -64,18 +64,18 @@ public class EEG {
     @ManyToOne
     @JoinColumn
     @JsonBackReference
-    private Patient patient2;
+    private Patient patient;
 
     public Integer getEEG_ID() {
         return EEG_ID;
     }
 
     public Patient getPatient() {
-        return patient2;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient2 = patient;
+        this.patient = patient;
     }
 
     public EEG() {

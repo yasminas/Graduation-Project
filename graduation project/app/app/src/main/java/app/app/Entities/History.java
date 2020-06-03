@@ -27,14 +27,14 @@ public class History {
 
     @OneToOne
     @JoinColumn
-    private Patient patient7;
+    private Patient patient;
 
     public Patient getPatient() {
-        return patient7;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient7 = patient;
+        this.patient= patient;
     }
 
 

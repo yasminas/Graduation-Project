@@ -19,14 +19,14 @@ public class NeuroScore {
     @ManyToOne
     @JoinColumn
     @JsonBackReference
-    private Patient patient3;
+    private Patient patient;
 
     public Patient getPatient() {
-        return patient3;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient3 = patient;
+        this.patient = patient;
     }
 
 

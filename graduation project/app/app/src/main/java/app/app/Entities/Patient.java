@@ -4,7 +4,7 @@ package app.app.Entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +14,8 @@ import java.util.Set;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer PatientID;
+    private Integer id;
+
     @Column
     private String FName;
     @Column
@@ -28,9 +29,14 @@ public class Patient {
     @Column
     private Integer PNumber;
     @Column
-    private Date CreationDate;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
     @Column
-    private Integer Doctor_ID;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+    @Column
+    private Integer DoctorID;
     @Column
     private String Education;
     @Column
@@ -45,7 +51,6 @@ public class Patient {
     private Integer MenarcheAge ;
     @Column
     private Integer prepreg ;
-
     @Column
     private Boolean seekpreg ;
     @Column
@@ -78,7 +83,13 @@ public class Patient {
 
 
 
-    @OneToMany(mappedBy = "patient1", cascade = CascadeType.ALL)
+
+
+
+
+
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Test> tests;
 
@@ -89,7 +100,7 @@ public class Patient {
         this.tests = tests;
     }
 
-    @OneToMany(mappedBy = "patient2", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<EEG> EEG;
 
@@ -100,7 +111,7 @@ public class Patient {
         this.EEG = EEG;
     }
 
-    @OneToMany(mappedBy = "patient3", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<NeuroScore> NeuroScore;
 
@@ -112,18 +123,18 @@ public class Patient {
     }
 
 
-    @OneToMany(mappedBy = "patient6", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Seizure> seizure;
 
     public Set<Seizure> getSeizure() {
         return seizure;
     }
-    public void setSeizure(Set<Seizure> seizure) {
+    public void setSeizure(List<Seizure> seizure) {
         seizure = seizure;
     }
 
-    @OneToMany(mappedBy = "patient4", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<Imaging> Imaging;
 
     public Set<Imaging> getImaging() {
@@ -133,7 +144,7 @@ public class Patient {
         Imaging = imaging;
     }
 
-    @OneToOne(mappedBy = "patient7", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
     private History History;
 
     public History getHistory() {
@@ -182,7 +193,7 @@ public class Patient {
         this.specialhabits = specialhabits;
     }
 
-    @ManyToMany(mappedBy = "patient10", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<AED>  AED;
 
     public Set<AED> getAED() {
@@ -193,7 +204,7 @@ public class Patient {
     }
 
 
-    @ManyToMany(mappedBy = "patient11", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<SurgicalProcedures>  SurgicalProcedures;
 
     public Set<SurgicalProcedures> getSurgicalProcedures() {
@@ -203,7 +214,7 @@ public class Patient {
         SurgicalProcedures = surgicalProcedures;
     }
 
-    @OneToMany(mappedBy = "patient12", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     private Set<Dependent> Dependent;
 
     public Set<Dependent> getDependent() {
@@ -223,12 +234,17 @@ public class Patient {
 
 
 
-    public Patient(String FName,String MName, String LName,List<SpecialHabits> specialhabits, List<Comorbidities>  como,String sex, Integer age,Date CDate,Integer Doctorid, Integer PNumber, String education, String occupation, String maritalstatus, Boolean activedriving, Boolean familyConsanguinity, Integer menarcheAge, Integer prepreg, Boolean seekpreg, String seizurefreedom, String regularity, Integer prepregAED, String drugfertility, String folicAcid, String complianceAED, String contraception, String currentPregnant, String changeAED, String catamEpilepsy, String menopause, String lactating, String threeD) {
+    public Patient(String FName,String MName, String LName,List<SpecialHabits> specialhabits, List<Comorbidities>  como,String sex, Integer age,Integer Doctorid,
+                   Integer PNumber, String education, String occupation,
+                   String maritalstatus, Boolean activedriving, Boolean familyConsanguinity, Integer menarcheAge
+            , Integer prepreg, Boolean seekpreg, String seizurefreedom, String regularity
+            , Integer prepregAED, String drugfertility, String folicAcid, String complianceAED,
+                   String contraception, String currentPregnant, String changeAED, String catamEpilepsy,
+                   String menopause, String lactating, String threeD) {
         this.FName = FName;
         this.MName = MName;
         this.LName = LName;
-        CreationDate=CDate;
-        Doctor_ID=Doctorid;
+        DoctorID=Doctorid;
         this.como=como;
         this.specialhabits=specialhabits;
         Sex = sex;
@@ -461,13 +477,6 @@ public class Patient {
         return Lactating;
     }
 
-    public Date getCreationDate() {
-        return CreationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        CreationDate = creationDate;
-    }
 
     public void setLactating(String lactating) {
         Lactating = lactating;
@@ -481,11 +490,61 @@ public class Patient {
         ThreeD = threeD;
     }
 
-    public Integer getPatientID() {
-        return PatientID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setPatientID(Integer patientID) {
-        PatientID = patientID;
+    public void setId(Integer id) {
+        this.id = id;
     }
+
+    public Integer getDoctorID() {
+        return DoctorID;
+    }
+
+    public void setDoctorID(Integer doctorID) {
+        DoctorID = doctorID;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Patient[id=" + id + ",DoctorID=" + DoctorID + ", FName=" + FName + ", MName=" + MName + ", LName=" + LName
+                + " , Sex=" + Sex + ", Age=" + Age + ", PNumber=" + PNumber + ", createdAt=" + createdAt + "" +
+                ", updatedAt=" + updatedAt + ", Education=" + Education + ", Occupation=" + Occupation + ", Maritalstatus=" + Maritalstatus + "" +
+                ", Activedriving=" + Activedriving + ", FamilyConsanguinity=" + FamilyConsanguinity + ", MenarcheAge=" + MenarcheAge + "" +
+                ", seekpreg=" + seekpreg + ", prepreg=" + prepreg + ", Seizurefreedom=" + Seizurefreedom + "" +
+                ", Regularity=" + Regularity + ", PrepregAED=" + PrepregAED + ", Drugfertility=" + Drugfertility + "" +
+                ", FolicAcid=" + FolicAcid + ", ComplianceAED=" + ComplianceAED + ", Contraception=" + Contraception + "" +
+                ", CurrentPregnant=" + CurrentPregnant + ", ChangeAED=" + ChangeAED + ", CatamEpilepsy=" + CatamEpilepsy + "" +
+                ", Menopause=" + Menopause + ", Lactating=" + Lactating + ", ThreeD=" + ThreeD + "]";
+    }
+
+    @PrePersist
+    public void onPrePersist() {
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
+    }
+
+    @PreUpdate
+    public void onPreUpdate() {
+        this.updatedAt = new Date();
+    }
+
+
 }

@@ -23,14 +23,14 @@ public class Dependent {
     private Integer freq;
     @ManyToOne
     @JoinColumn
-    private Patient patient12;
+    private Patient patient;
 
     public Patient getPatient() {
-        return patient12;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient12 = patient;
+        this.patient= patient;
     }
 
     public Dependent() {

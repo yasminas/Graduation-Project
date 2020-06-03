@@ -21,14 +21,14 @@ public class AED {
 
     @ManyToMany
     @JoinColumn
-    private Set<Patient> patient10;
+    private Set<Patient> patient;
 
     public Set<Patient> getPatient() {
-        return patient10;
+        return patient;
     }
 
     public void setPatient(Set<Patient> patient) {
-        this.patient10 = patient;
+        this.patient = patient;
     }
 
     public AED() {

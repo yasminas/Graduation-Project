@@ -21,14 +21,14 @@ public class SurgicalProcedures {
     private String Pathology;
     @ManyToMany
     @JoinColumn
-    private Set<Patient> patient11;
+    private Set<Patient> patient;
 
     public Set<Patient> getPatient() {
-        return patient11;
+        return patient;
     }
 
     public void setPatient(Set<Patient> patient) {
-        this.patient11 = patient;
+        this.patient = patient;
     }
 
     public SurgicalProcedures(String type, Date date, String side, String intraoperative_EcoG, String pathology) {

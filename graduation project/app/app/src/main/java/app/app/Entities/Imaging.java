@@ -35,7 +35,7 @@ public class Imaging {
 
     @ManyToOne
     @JoinColumn
-    private Patient patient4;
+    private Patient patient;
 
 
 
@@ -71,6 +71,22 @@ public class Imaging {
         Location_subcortical = location_subcortical;
         Details = details;
         Report = report;
+    }
+
+    public Integer getImaging_ID() {
+        return Imaging_ID;
+    }
+
+    public void setImaging_ID(Integer imaging_ID) {
+        Imaging_ID = imaging_ID;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
     }
 
     public String getFinal_impression() {

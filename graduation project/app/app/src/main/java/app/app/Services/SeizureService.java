@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SeizureService {
     @Autowired
@@ -18,5 +20,8 @@ public class SeizureService {
         SeizureRepo.save(seizure);
         response = new ResponseEntity<>(true, HttpStatus.OK);
         return response;
+    }
+    public List<Seizure> getAllSeizure() {
+        return SeizureRepo.findAll();
     }
 }

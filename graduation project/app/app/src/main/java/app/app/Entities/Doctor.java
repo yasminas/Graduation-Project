@@ -8,22 +8,31 @@ import java.util.Set;
 @Entity(name="Doctor")
 
 public class Doctor {
+
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Integer DoctorID;
-@Column
+private Long id;
+
+
 private String fname;
-@Column
+
 private String lname;
-@Column
+
 private  String email;
-@Column
+
 private String password;
-@Column
+
 private Boolean isdeleted;
-@Column
+
 private Integer code;
 
+
+
+/**
+@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+@JoinColumn
+
+private Collection<Role> roles;**/
 
 
 
@@ -32,12 +41,15 @@ private Integer code;
         @OneToMany(mappedBy = "doctor")
         private Set<FollowUp> followup = new HashSet<>();
 
-        public Integer getDoctorID() {
-                return DoctorID;
+
+
+
+        public Long getId() {
+                return id;
         }
 
-        public void setDoctorID(Integer doctorID) {
-                DoctorID = doctorID;
+        public void setId(Long id) {
+                this.id = id;
         }
 
         public Set<FollowUp> getFollowup() {
@@ -55,13 +67,11 @@ private Integer code;
 
         }
 
-        public Doctor(String fname, String lname, String email, String password, Boolean isdeleted, Integer code) {
+        public Doctor(String fname, String lname, String email, String password) {
                 this.fname = fname;
                 this.lname = lname;
                 this.email = email;
                 this.password = password;
-                this.isdeleted = isdeleted;
-                this.code = code;
         }
 
 
@@ -113,4 +123,24 @@ private Integer code;
         public void setCode(Integer code) {
                 this.code = code;
         }
+
+       /** public Collection<Role> getRoles() {
+                return roles;
+        }
+
+        public void setRoles(Collection<Role> roles) {
+                this.roles = roles;
+        }
+
+        @Override
+        public String toString() {
+                return "User{" +
+                        "id=" + id +
+                        ", fname='" + fname + '\'' +
+                        ", lname='" + lname + '\'' +
+                        ", email='" + email + '\'' +
+                        ", password='" + "*********" + '\'' +
+
+                        '}';
+        }**/
 }

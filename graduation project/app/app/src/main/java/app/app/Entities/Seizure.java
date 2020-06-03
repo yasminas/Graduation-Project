@@ -15,7 +15,6 @@ public class Seizure {
     private String Semiology;
     @Column
     private String Mode;
-
     @Column
     private String Duration;
     @Column
@@ -48,7 +47,7 @@ public class Seizure {
     @ManyToOne
     @JoinColumn
     @JsonBackReference
-    private Patient patient6;
+    private Patient patient;
 
 
     @ManyToMany(cascade = {
@@ -135,11 +134,11 @@ public class Seizure {
     }
 
     public Patient getPatient() {
-        return patient6;
+        return patient;
     }
 
     public void setPatient(Patient patient) {
-        this.patient6 = patient;
+        this.patient = patient;
     }
 
     public Seizure() {
@@ -221,7 +220,13 @@ public class Seizure {
         Longest_period = longest_period;
     }
 
+    public Integer getSeizur_ID() {
+        return Seizur_ID;
+    }
 
+    public void setSeizur_ID(Integer seizur_ID) {
+        Seizur_ID = seizur_ID;
+    }
 
     public Boolean getSymptom_appearance() {
         return symptom_appearance;

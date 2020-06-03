@@ -1,32 +1,28 @@
-package app.app.Entities;
+/**package app.app.Entities;
 
 import javax.persistence.*;
 
 @Entity
 public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer roleid;
-    @Column
-    private  String name;
-
-
-
+    private Long id;
+    private String name;
 
     public Role() {
-        super();
     }
 
     public Role(String name) {
-        name = name;
+        this.name = name;
     }
 
-    public Integer getRoleid() {
-        return roleid;
+    public Long getId() {
+        return id;
     }
 
-    public void setRoleid(Integer roleid) {
-        this.roleid = roleid;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -34,6 +30,14 @@ public class Role {
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
-}
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}**/
