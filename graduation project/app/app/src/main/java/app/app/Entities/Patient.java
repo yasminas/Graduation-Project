@@ -4,9 +4,8 @@ package app.app.Entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -155,12 +154,11 @@ public class Patient {
     }
 
     @OneToMany(mappedBy = "patient")
-    private Set<FollowUp> followup = new HashSet<>();
+    private Set<FollowUp> followup ;
 
     public Set<FollowUp> getFollowup() {
         return followup;
     }
-
     public void setFollowup(Set<FollowUp> followup) {
         this.followup = followup;
     }

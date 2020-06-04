@@ -2,7 +2,6 @@
 package app.app.Entities;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name="Doctor")
@@ -11,7 +10,7 @@ public class Doctor {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Long id;
+private Integer id;
 
 
 private String fname;
@@ -39,16 +38,14 @@ private Collection<Role> roles;**/
 
 
         @OneToMany(mappedBy = "doctor")
-        private Set<FollowUp> followup = new HashSet<>();
+        private Set<FollowUp> followup ;
 
 
-
-
-        public Long getId() {
+        public Integer getId() {
                 return id;
         }
 
-        public void setId(Long id) {
+        public void setId(Integer id) {
                 this.id = id;
         }
 

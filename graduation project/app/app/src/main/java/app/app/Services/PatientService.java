@@ -7,12 +7,26 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PatientService {
 
 @Autowired
     PatientRepo patientRepo;
 
+/** get list **/
+public List<Patient> getAllPatient()
+{
+    List<Patient> result = (List<Patient>) patientRepo.findAll();
+
+    if(result.size() > 0) {
+        return result;
+    } else {
+        return new ArrayList<Patient>();
+    }
+}
 /**creating**/
   public ResponseEntity<Boolean> addpatient(Patient patient)
     {

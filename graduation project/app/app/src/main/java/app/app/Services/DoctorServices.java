@@ -17,29 +17,28 @@ import java.util.Properties;
 import java.util.Random;
 
 @Service
-public class DoctorServices  {
-
+public class DoctorServices {
     @Autowired
     private DoctorRepo Doctorrepo ;
 
     // add user
-public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
-    ResponseEntity<Boolean> response;
-    Doctor temp = Doctorrepo.findByEmail(Doctor.getEmail());
-    System.out.println(Doctor.getEmail());
-    if (temp == null ) {
-        Doctor.setPassword(hashPassword(Doctor.getPassword()));
-        Doctor.setIsdeleted(false);
-        Doctorrepo.save(Doctor);
-        response = new ResponseEntity<>(true, HttpStatus.OK);
-        return response;
-    }
-    else {
-        response = new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
-        return response;
-    }
+    public  ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
+        ResponseEntity<Boolean> response;
+        Doctor temp = Doctorrepo.findByEmail(Doctor.getEmail());
+        System.out.println(Doctor.getEmail());
+        if (temp == null ) {
+            Doctor.setPassword(hashPassword(Doctor.getPassword()));
+            Doctor.setIsdeleted(false);
+            Doctorrepo.save(Doctor);
+            response = new ResponseEntity<>(true, HttpStatus.OK);
+            return response;
+        }
+        else {
+            response = new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+            return response;
+        }
 
-}
+    }
 
     // remove user
     public ResponseEntity<Boolean> removeDoctor(Doctor doctor) {
@@ -67,7 +66,7 @@ public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
         if (temp1 != null && temp1.getIsdeleted()==false && checkpss==true ) {
             //Integer code= sendemail(temp1.getEmail());
             Doctorrepo.delete(temp1);
-           // temp1.setCode(code);
+            // temp1.setCode(code);
             Doctorrepo.save(temp1);
             response = new ResponseEntity<>("login Asuccessfully", HttpStatus.OK);
             return response;
@@ -124,23 +123,23 @@ public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
         int m = (int) Math.pow(10, n - 1);
         return m + new Random().nextInt(9 * m);
     }
-   /* public ResponseEntity<String> loginstep2(Doctor user , Integer code) throws javax.mail.MessagingException {
+    /* public ResponseEntity<String> loginstep2(Doctor user , Integer code) throws javax.mail.MessagingException {
 
-        Doctor temp=userrepo.findByUsername(user.getUsername());
-        Integer logcode =temp.getLogcode();
-        ResponseEntity<String> response;
-        if (logcode.equals(code))
-        {
-            response = new ResponseEntity<>(temp.getRole().getName(), HttpStatus.OK);
-            return  response;
-        }
-        else
-        {
-            response =new ResponseEntity<>("wrong code",HttpStatus.BAD_REQUEST);
-            return  response;
-        }
+         Doctor temp=userrepo.findByUsername(user.getUsername());
+         Integer logcode =temp.getLogcode();
+         ResponseEntity<String> response;
+         if (logcode.equals(code))
+         {
+             response = new ResponseEntity<>(temp.getRole().getName(), HttpStatus.OK);
+             return  response;
+         }
+         else
+         {
+             response =new ResponseEntity<>("wrong code",HttpStatus.BAD_REQUEST);
+             return  response;
+         }
 
-    }*/
+     }*/
     public ResponseEntity<String> forgetpass(Doctor doctor) throws javax.mail.MessagingException, MessagingException {
         Doctor temp=Doctorrepo.findByEmail(doctor.getEmail());
         ResponseEntity<String> response;
@@ -180,7 +179,6 @@ public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
             response = new ResponseEntity<>("Not Allowed", HttpStatus.BAD_REQUEST);
             return response;
         }
-
     }
 
 
@@ -189,42 +187,9 @@ public ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
         ResponseEntity<Boolean> logoutresponse;
         session.removeAttribute("Email");
         session.invalidate();
-         logoutresponse =new ResponseEntity<>(true,HttpStatus.OK);
-         return logoutresponse;
+        logoutresponse =new ResponseEntity<>(true,HttpStatus.OK);
+        return logoutresponse;
     }
-   /** @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
-
-    public Doctor findByEmail(String email){
-        return Doctorrepo.findByEmail(email);
-    }
-
-    public Doctor save(UserRegistrationDto registration){
-        Doctor user = new Doctor();
-        user.setFname(registration.getFname());
-        user.setLname(registration.getLname());
-        user.setEmail(registration.getEmail());
-        user.setPassword(passwordEncoder.encode(registration.getPassword()));
-        user.setRoles(Arrays.asList(new Role("ROLE_USER")));
-        return Doctorrepo.save(user);
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Doctor user = Doctorrepo.findByEmail(email);
-        if (user == null){
-            throw new UsernameNotFoundException("Invalid username or password.");
-        }
-        return new org.springframework.security.core.userdetails.User(user.getEmail(),
-                user.getPassword(),
-                mapRolesToAuthorities(user.getRoles()));
-    }
-
-    private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
-        return roles.stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
-                .collect(Collectors.toList());
-    }**/
 
 
 }

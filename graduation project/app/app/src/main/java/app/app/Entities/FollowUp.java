@@ -8,6 +8,7 @@ class FollowUp{
 
     @EmbeddedId
      private FollowUpKey id =new FollowUpKey();
+
     @Column
     private Date last_visit;
     @Column

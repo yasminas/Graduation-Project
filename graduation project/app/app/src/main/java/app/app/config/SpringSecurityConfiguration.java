@@ -31,54 +31,6 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                  http.csrf().disable();
     }
 
-   /** @Autowired
-    private DoctorServices Doctorservices;
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers(" /resetpass","/addPatient","/adddependent","/addscore",
-                        "/addeeg","/loaddata","/loadimg","/addhabit","/addcomo","/addAED",
-                        "/addtest", "/addhistory","/addprocedure","/addfeature","/addimaging",
-                        "/addseizure","/addfocal","/addGM","/addGNM","/Register","/login","/forgetpass",
-                        "/verifycode","/logout","/uploadFile","/addmapping","/loaddata","/showservices",
-                        "/adduser","/BarChart","/removeuser","/edit","/createPatient","/delete/{id}","/edit/{id}").permitAll()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout")
-
-                .permitAll();
-
-    }**/
- /**  @Autowired
-   private DoctorServices Doctorservices;
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
-        auth.setUserDetailsService(Doctorservices);
-        auth.setPasswordEncoder(passwordEncoder());
-        return auth;
-    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }**/
-
 
 
 

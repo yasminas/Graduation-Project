@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 
 
 @RestController
-@RequestMapping("/registration")
 public class DoctorController {
 
     @Autowired
@@ -42,7 +42,7 @@ public class DoctorController {
     public ResponseEntity<String> loginstep2(@RequestBody Doctor user, @RequestParam("code") Integer code) throws MessagingException {
         return  Doctorservices.loginstep2(user,code);
     }*/
-   /** @CrossOrigin(origins = "*")
+    @CrossOrigin(origins = "*")
     @RequestMapping(value="/forgetpass",method = RequestMethod.POST)
     public ResponseEntity<String> forgetpass(@RequestBody Doctor doctor) throws MessagingException {
         return  Doctorservices.forgetpass(doctor);
@@ -57,33 +57,7 @@ public class DoctorController {
     public ResponseEntity<Boolean> logout(HttpSession session) throws Exception {
         return Doctorservices.logout(session);
     }
-/**
-   @ModelAttribute("user")
-   public UserRegistrationDto userRegistrationDto() {
-       return new UserRegistrationDto();
-   }
 
-    @GetMapping
-    public String showRegistrationForm(Model model) {
-        return "registration";
-    }
 
-    @PostMapping
-    public String registerUserAccount(@ModelAttribute("user") @Valid UserRegistrationDto userDto,
-                                      BindingResult result){
-
-        Doctor existing = Doctorservices.findByEmail(userDto.getEmail());
-        if (existing != null){
-            result.rejectValue("email", null, "There is already an account registered with that email");
-        }
-
-        if (result.hasErrors()){
-            return "registration";
-        }
-
-        Doctorservices.save(userDto);
-        return "redirect:/registration?success";
-    }
-    **/
 
 }

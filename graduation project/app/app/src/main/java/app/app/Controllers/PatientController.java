@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -19,6 +20,16 @@ public class PatientController  {
     PatientRepo patientRepo;
 
     @CrossOrigin(origins = "*")
+    /**view list**/
+    @RequestMapping(value="/view",method = RequestMethod.GET)
+    public String getAllPatients(Model Entities)
+    {
+        List<Patient> patientlist = patientService.getAllPatient();
+
+        Entities.addAttribute("patients", patientlist);
+        return "list-patients";
+    }
+     /**Adding new patient**/
     @RequestMapping(value="/addPatient",method = RequestMethod.POST)
     public ResponseEntity<Boolean> Addpatient(@RequestBody Patient patient) {
         return  patientService.addpatient(patient);
@@ -36,34 +47,75 @@ public class PatientController  {
 
     }
 
-    /**Updating
-     * @return**/
-    @GetMapping("/edit/{id}")
-    public Patient getNoteById(@PathVariable(value = "id") Integer id) {
+    /**Updating **/
+
+
+    @GetMapping("/edit/{id}")/**get by id **/
+    public Patient getPatientById(@PathVariable(value = "id") Integer id) {
         Patient patient = patientRepo.findById(id);
 
 
          return patientRepo.findById(id);
     }
 
-    @PutMapping("/edit/{id}")
-    public Patient updateNote(@PathVariable(value = "id") Integer id,
+       @PutMapping("/edit/{id}")
+    public Patient updatePatient(@PathVariable(value = "id") Integer id,
                            @Valid @RequestBody Patient newpatient) {
-
         Patient patient = patientRepo.findById(id);
+        /**for patient section **/
         patient.setFName(newpatient.getFName());
         patient.setMName(newpatient.getMName());
         patient.setLName(newpatient.getLName());
         patient.setSex(newpatient.getSex());
         patient.setAge(newpatient.getAge());
         patient.setPNumber(newpatient.getPNumber());
-        patient.setCreatedAt(newpatient.getCreatedAt());
         patient.setUpdatedAt(newpatient.getUpdatedAt());
+           patient.setEducation(newpatient.getEducation());
+          patient.setOccupation(newpatient.getOccupation());
+          patient.setMaritalstatus(newpatient.getMaritalstatus());
+          patient.setActivedriving(newpatient.getActivedriving());
+          patient.setFamilyConsanguinity(newpatient.getFamilyConsanguinity());
+          patient.setMenarcheAge(newpatient.getMenarcheAge());
+          patient.setSeekpreg(newpatient.getSeekpreg());
+          patient.setPrepreg(newpatient.getPrepreg());
+          patient.setSeizurefreedom(newpatient.getSeizurefreedom());
+          patient.setRegularity(newpatient.getRegularity());
+          patient.setPrepregAED(newpatient.getPrepregAED());
+          patient.setDrugfertility(newpatient.getDrugfertility());
+          patient.setFolicAcid(newpatient.getFolicAcid());
+          patient.setComplianceAED(newpatient.getComplianceAED());
+          patient.setContraception(newpatient.getContraception());
+          patient.setCurrentPregnant(newpatient.getCurrentPregnant());
+          patient.setChangeAED(newpatient.getChangeAED());
+          patient.setCatamEpilepsy(newpatient.getCatamEpilepsy());
+          patient.setMenopause(newpatient.getMenopause());
+          patient.setLactating(newpatient.getLactating());
+          patient.setThreeD(newpatient.getThreeD());
+           patient.setSpecialhabits(newpatient.getSpecialhabits());
+           patient.setComo(newpatient.getComo());
 
 
-        Patient updated = patientRepo.save(patient);
+           Patient updated = patientRepo.save(patient);
         return updated;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    /** @GetMapping ("/edit/{id}")
     public String showUpdateForm(@PathVariable("id") Integer id, Model Entities) {
         List<Patient> patient = patientRepo.findById(id);

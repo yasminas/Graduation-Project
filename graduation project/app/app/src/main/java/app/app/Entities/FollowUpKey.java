@@ -8,40 +8,41 @@ import java.util.Objects;
 public class FollowUpKey implements Serializable {
 
 
-    Integer PatientID;
-    Integer DoctorID;
+    Integer patientId;
+    Integer doctorId;
     public FollowUpKey() {
 
     }
     public FollowUpKey(Integer patientId, Integer doctorId) {
         super();
-        PatientID = patientId;
-        DoctorID = doctorId;
+        this.patientId = patientId;
+        this.doctorId = doctorId;
     }
 
     public Integer getPatientId() {
-        return PatientID;
+        return patientId;
     }
 
     public void setPatientId(Integer patientId) {
-        PatientID = patientId;
+        this.patientId = patientId;
     }
 
     public Integer getDoctorId() {
-        return DoctorID;
+        return doctorId;
     }
 
     public void setDoctorId(Integer doctorId) {
-        DoctorID = doctorId;
+        this.doctorId = doctorId;
     }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result
-                + ((PatientID == null) ? 0 : PatientID.hashCode());
+                + ((patientId == null) ? 0 : patientId.hashCode());
         result = prime * result
-                + ((DoctorID == null) ? 0 : DoctorID.hashCode());
+                + ((doctorId == null) ? 0 : doctorId.hashCode());
         return result;
     }
 
