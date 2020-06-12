@@ -1,3 +1,4 @@
+
 package app.app.Entities;
 
 import javax.persistence.*;
@@ -25,23 +26,24 @@ class FollowUp{
     private String AED_modifing;
 
 
-    @ManyToOne
-    @MapsId("patientId")
-    private Patient patient;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("doctorId")
+
     private Doctor doctor;
 
-
-    public FollowUpKey getId() {
-        return id;
+    public Doctor getDoctor() {
+        return doctor;
+    }
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
-    public void setId(FollowUpKey id) {
-        this.id = id;
-    }
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("patientId")
+    private Patient patient;
     public Patient getPatient() {
         return patient;
     }
@@ -50,19 +52,13 @@ class FollowUp{
         this.patient = patient;
     }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
 
     public FollowUp() {
         super();
     }
 
-    public FollowUp(Date last_visit, Integer frequency_per_month, Boolean last_visit_seizure, String compliant_on_AED, String same_seizure_type, String triggering_factors, String AED_modifing) {
+    public FollowUp(Date last_visit, Integer frequency_per_month, Boolean last_visit_seizure, String compliant_on_AED, String same_seizure_type, String triggering_factors, String AED_modifing,Integer d_id,int p_id) {
+        super();
         this.last_visit = last_visit;
         this.frequency_per_month = frequency_per_month;
         this.last_visit_seizure = last_visit_seizure;
@@ -70,6 +66,16 @@ class FollowUp{
         this.same_seizure_type = same_seizure_type;
         this.triggering_factors = triggering_factors;
         this.AED_modifing = AED_modifing;
+        this.patient=new Patient(p_id);
+        this.doctor=new Doctor(d_id);
+
+    }
+    public FollowUpKey getId() {
+        return id;
+    }
+
+    public void setId(FollowUpKey id) {
+        this.id = id;
     }
 
     public Date getLast_visit() {

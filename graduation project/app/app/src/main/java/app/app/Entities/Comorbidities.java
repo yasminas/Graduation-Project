@@ -1,19 +1,23 @@
 package app.app.Entities;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Comorbidities {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Comorbiditiesid;
+    private Integer id;
     @Column
     private String cname;
 
-    @ManyToMany(mappedBy = "como")
-    private List<Patient> Patient = new ArrayList<>();
+    @ManyToMany(mappedBy = "como",fetch = FetchType.LAZY)
+    @JsonIgnore
+
+    private List<Patient> Patient ;
 
     public List<Patient> getPatient() {
         return Patient;
@@ -31,7 +35,13 @@ public class Comorbidities {
         this.cname = cname;
     }
 
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCname() {
         return cname;

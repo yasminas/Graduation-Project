@@ -1,4 +1,4 @@
-package app.app.Services;
+/*package app.app.Services;
 
 import app.app.Entities.Comorbidities;
 import app.app.Repositories.ComorbiditiesRepo;
@@ -20,3 +20,4 @@ public class ComorbiditiesService {
         return response;
     }
 }
+*/

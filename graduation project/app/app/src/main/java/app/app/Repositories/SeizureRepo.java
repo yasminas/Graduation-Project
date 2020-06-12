@@ -5,8 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SeizureRepo extends JpaRepository<Seizure, String> {
-    /**Seizure findAllBy(String Semiology);**/
+public interface SeizureRepo extends JpaRepository<Seizure, Integer> {
+
+
+    Seizure findById(Integer id);    /**Seizure findAllBy(String Semiology);**/
 
 
 }

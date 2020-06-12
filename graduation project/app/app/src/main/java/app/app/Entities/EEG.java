@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class EEG {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer EEG_ID;
+    private Integer id;
     @Column
     private String Result;
     @Column
@@ -61,14 +61,12 @@ public class EEG {
     @Column
     private String Report ;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @JsonBackReference
-    private Patient patient;
 
-    public Integer getEEG_ID() {
-        return EEG_ID;
-    }
+    private Patient patient;
 
     public Patient getPatient() {
         return patient;
@@ -83,7 +81,8 @@ public class EEG {
     }
 
 
-    public EEG(String result,String type, String date, String scalpEEG, String reason, Integer frequency_of_PDR, Boolean posteriorrhythm, String source_of_EEG, String behavioral_recorded, String reasonProvocative_measures, Integer number_of_seizures, String dischargelocation, String localizedside, String interictal_Circumstances, String interictal_frequency, String interictal_special_pattern, String ictal_abnormalities, String same_icatal_features, String ictal_location, String ictal_pattern, String ictal_with, Boolean focal_slowing, String attenuation, String EEG_slowing, String report) {
+    public EEG(String result,String type, String date, String scalpEEG, String reason, Integer frequency_of_PDR, Boolean posteriorrhythm, String source_of_EEG, String behavioral_recorded, String reasonProvocative_measures, Integer number_of_seizures, String dischargelocation, String localizedside, String interictal_Circumstances, String interictal_frequency, String interictal_special_pattern, String ictal_abnormalities, String same_icatal_features, String ictal_location, String ictal_pattern, String ictal_with, Boolean focal_slowing, String attenuation, String EEG_slowing, String report,int p_id) {
+        super();
         Result = result;
         Type=type;
         Date = date;
@@ -109,6 +108,7 @@ public class EEG {
         Attenuation = attenuation;
         this.EEG_slowing = EEG_slowing;
         Report = report;
+        this.patient=new Patient(p_id);
     }
 
     public String getResult() {
@@ -309,5 +309,13 @@ public class EEG {
 
     public void setReport(String report) {
         Report = report;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

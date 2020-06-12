@@ -1,6 +1,7 @@
 package app.app.Services;
 
 import app.app.Entities.Patient;
+import app.app.Repositories.DoctorRepo;
 import app.app.Repositories.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,10 +33,15 @@ public List<Patient> getAllPatient()
     {
 
         ResponseEntity<Boolean> response;
+
+
         patientRepo.save(patient);
+
         response = new ResponseEntity<>(true, HttpStatus.OK);
         return response;
     }
+
+
 
 
 

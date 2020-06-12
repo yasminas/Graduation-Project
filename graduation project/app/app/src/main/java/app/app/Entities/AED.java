@@ -1,5 +1,7 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,7 +9,7 @@ import java.util.Set;
 public class AED {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer AED_ID;
+    private Integer id;
     @Column
     private Integer Dose_mg;
     @Column
@@ -19,8 +21,10 @@ public class AED {
     @Column
     private String Sideeffect;
 
-    @ManyToMany
-    @JoinColumn
+
+
+    @ManyToMany(mappedBy = "aed",fetch = FetchType.LAZY)
+    @JsonIgnore
     private Set<Patient> patient;
 
     public Set<Patient> getPatient() {
@@ -35,13 +39,21 @@ public class AED {
         super();
     }
 
-
-    public AED(Integer  dose,String currentAED, String drug_formulation, String effectiveness, String sideeffect) {
+    public AED(Integer dose_mg, String currentAED, String drug_formulation, String effectiveness, String sideeffect, Set<Patient> patient) {
+        Dose_mg = dose_mg;
         CurrentAED = currentAED;
-        Dose_mg=dose;
         Drug_formulation = drug_formulation;
         Effectiveness = effectiveness;
         Sideeffect = sideeffect;
+        this.patient = patient;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getDose_mg() {

@@ -1,3 +1,4 @@
+/*
 package app.app.Services;
 
 import app.app.Dto.Filters;
@@ -27,7 +28,7 @@ public class TicketServices {
 
  */
 
-        // Map<String, Object> result = new HashMap<>();
+    /*    // Map<String, Object> result = new HashMap<>();
 
         List<Object[]>  defect = tic.Severity(vlaues);
         for (Object[] a : defect) {
@@ -42,3 +43,4 @@ public class TicketServices {
         return null;
     }
 }
+*/

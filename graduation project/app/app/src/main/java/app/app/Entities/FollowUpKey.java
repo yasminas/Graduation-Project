@@ -1,3 +1,4 @@
+
 package app.app.Entities;
 
 import javax.persistence.Embeddable;
@@ -11,7 +12,7 @@ public class FollowUpKey implements Serializable {
     Integer patientId;
     Integer doctorId;
     public FollowUpKey() {
-
+super();
     }
     public FollowUpKey(Integer patientId, Integer doctorId) {
         super();

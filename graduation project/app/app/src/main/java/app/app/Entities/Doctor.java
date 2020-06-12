@@ -10,7 +10,7 @@ public class Doctor {
 
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
-private Integer id;
+private int id;
 
 
 private String fname;
@@ -27,27 +27,9 @@ private Integer code;
 
 
 
-/**
-@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-@JoinColumn
+      @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 
-private Collection<Role> roles;**/
-
-
-
-
-
-        @OneToMany(mappedBy = "doctor")
-        private Set<FollowUp> followup ;
-
-
-        public Integer getId() {
-                return id;
-        }
-
-        public void setId(Integer id) {
-                this.id = id;
-        }
+      private Set<FollowUp> followup ;
 
         public Set<FollowUp> getFollowup() {
                 return followup;
@@ -57,6 +39,19 @@ private Collection<Role> roles;**/
                 this.followup = followup;
         }
 
+
+
+        public int getId() {
+                return id;
+        }
+
+        public void setId(int id) {
+                this.id = id;
+        }
+
+        public Doctor(int id) {
+                this.id = id;
+        }
 
 
         public Doctor() {
@@ -121,6 +116,8 @@ private Collection<Role> roles;**/
                 this.code = code;
         }
 
+}
+
        /** public Collection<Role> getRoles() {
                 return roles;
         }
@@ -139,5 +136,4 @@ private Collection<Role> roles;**/
                         ", password='" + "*********" + '\'' +
 
                         '}';
-        }**/
-}
+        }}**/

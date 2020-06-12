@@ -1,3 +1,4 @@
+/*
 package app.app.Entities;
 import javax.persistence.*;
 import java.util.Date;
@@ -50,7 +51,9 @@ public class Ticket{
     @Column(name="reopen")
     private String reopen;
 
+
     /** Default constructor. */
+/*
     public Ticket() {
         super();
     }
@@ -257,3 +260,4 @@ public class Ticket{
     }
 
 }
+*/

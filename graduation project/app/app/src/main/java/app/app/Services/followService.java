@@ -1,22 +1,22 @@
 /*
 package app.app.Services;
 
-import app.app.Entities.Features;
+import app.app.Entities.FollowUpKey;
+import app.app.Repositories.followRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import app.app.Repositories.FeaturesRepo;
 
 @Service
-public class FeaturesService {
+public class followService {
     @Autowired
-    FeaturesRepo FeaturesRepo;
-    public ResponseEntity<Boolean> addfeature(Features feature)
+    followRepo followrepo;
+    public ResponseEntity<Boolean> followup(FollowUpKey followup)
     {
 
         ResponseEntity<Boolean> response;
-        FeaturesRepo.save(feature);
+        followrepo.save(followup);
         response = new ResponseEntity<>(true, HttpStatus.OK);
         return response;
     }

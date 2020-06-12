@@ -140,6 +140,7 @@ public class DoctorServices {
          }
 
      }*/
+
     public ResponseEntity<String> forgetpass(Doctor doctor) throws javax.mail.MessagingException, MessagingException {
         Doctor temp=Doctorrepo.findByEmail(doctor.getEmail());
         ResponseEntity<String> response;

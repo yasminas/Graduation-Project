@@ -1,12 +1,14 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity(name="Dependent")
 public class Dependent {
    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-   private Integer dependentid;
+   private Integer id;
     @Column
    private Integer PreDeliv;
     @Column
@@ -21,8 +23,10 @@ public class Dependent {
     private String complications;
     @Column
     private Integer freq;
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
+    @JsonBackReference
     private Patient patient;
 
     public Patient getPatient() {
@@ -38,7 +42,8 @@ public class Dependent {
     }
 
 
-    public Dependent(Integer preDeliv, String outcome,String mode, String anesth, String AED, String complications, Integer freq) {
+    public Dependent(Integer preDeliv, String outcome,String mode, String anesth, String AED, String complications, Integer freq,int p_id) {
+        super();
         PreDeliv = preDeliv;
         this.outcome = outcome;
         this.mode = mode;
@@ -46,6 +51,16 @@ public class Dependent {
         this.AED = AED;
         this.complications = complications;
         this.freq = freq;
+        this.patient=new Patient(p_id);
+
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Integer getPreDeliv() {

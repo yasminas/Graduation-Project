@@ -1,44 +1,56 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class ASSFeatures {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer ASSFeaturesid;
+    private Integer id;
     @Column
     private String afname;
 
+    @ManyToMany(mappedBy = "assfeatures",fetch = FetchType.LAZY)
+    @JsonIgnore
 
-    @ManyToMany(mappedBy = "assfeatures")
-    private List<Seizure> Seizure = new ArrayList<>();
+    private List<Seizure> Seizure ;
+
+    public List<Seizure> getSeizure() {
+        return Seizure;
+    }
+    public void setSeizure(List<Seizure> seizure) {
+        Seizure = seizure;
+    }
+
 
 
     public ASSFeatures() {
         super();
     }
 
-    public ASSFeatures(String name) {
+    public ASSFeatures(String name,List<Seizure> Seizure) {
         afname = name;
+        this.Seizure=Seizure;
+
     }
 
-    public String getafname() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getAfname() {
         return afname;
     }
 
-    public void setafname(String asfname) {
-       afname = asfname;
-    }
-
-    public List<Seizure> getSeizure() {
-        return Seizure;
-    }
-
-    public void setSeizure(List<Seizure> seizure) {
-        Seizure = seizure;
+    public void setAfname(String afname) {
+        this.afname = afname;
     }
 }
 

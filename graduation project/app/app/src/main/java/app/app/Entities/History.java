@@ -1,12 +1,14 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
 public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer History_ID;
+    private Integer id;
     @Column
     private String Etiology;
     @Column
@@ -25,8 +27,10 @@ public class History {
     private Integer brainlesionAge;
 
 
-    @OneToOne
+
+    @OneToOne(mappedBy = "history")
     @JoinColumn
+    @JsonBackReference
     private Patient patient;
 
     public Patient getPatient() {
@@ -43,7 +47,8 @@ public class History {
     }
 
 
-    public History(String etiology,Boolean seizures_greater_5min, Boolean admition_to_hospital, String type_of_seizure, String AED_on_discharge, String pasthistory, String fabrilehistory, Integer brainlesionAge) {
+    public History(String etiology,Boolean seizures_greater_5min, Boolean admition_to_hospital, String type_of_seizure, String AED_on_discharge, String pasthistory, String fabrilehistory, Integer brainlesionAge,int p_id) {
+        super();
         this.seizures_greater_5min = seizures_greater_5min;
         Etiology=etiology;
         this.admition_to_hospital = admition_to_hospital;
@@ -52,6 +57,7 @@ public class History {
         this.pasthistory = pasthistory;
         this.fabrilehistory = fabrilehistory;
         this.brainlesionAge = brainlesionAge;
+        this.patient=new Patient(p_id);
     }
 
     public String getEtiology() {

@@ -1,14 +1,16 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 public class SurgicalProcedures {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Procedure_ID;
+    private Integer id;
     @Column
     private String Type;
     @Column
@@ -19,28 +21,41 @@ public class SurgicalProcedures {
     private String Intraoperative_EcoG;
     @Column
     private String Pathology;
-    @ManyToMany
-    @JoinColumn
-    private Set<Patient> patient;
 
-    public Set<Patient> getPatient() {
+
+    @ManyToMany(  mappedBy = "procedures", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Patient> patient;
+
+    public List<Patient> getPatient() {
         return patient;
     }
 
-    public void setPatient(Set<Patient> patient) {
+    public void setPatient(List<Patient> patient) {
         this.patient = patient;
     }
 
-    public SurgicalProcedures(String type, Date date, String side, String intraoperative_EcoG, String pathology) {
+
+
+    public SurgicalProcedures() {
+        super();
+    }
+
+    public SurgicalProcedures(String type, Date date, String side, String intraoperative_EcoG, String pathology, List<Patient> patient) {
         Type = type;
         Date = date;
         Side = side;
         Intraoperative_EcoG = intraoperative_EcoG;
         Pathology = pathology;
+        this.patient = patient;
     }
 
-    public SurgicalProcedures() {
-        super();
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getType() {
@@ -51,7 +66,7 @@ public class SurgicalProcedures {
         Type = type;
     }
 
-    public Date getDate() {
+    public java.sql.Date getDate() {
         return Date;
     }
 

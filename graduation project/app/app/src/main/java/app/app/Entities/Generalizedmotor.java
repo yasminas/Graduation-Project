@@ -1,19 +1,22 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Generalizedmotor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Gid;
+    private Integer id;
     @Column
     private String gmname;
 
-    @ManyToMany(mappedBy = "generalizedMotors")
-    private List<Seizure> Seizure = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "generalizedMotors",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Seizure> Seizure ;
 
     public List<Seizure> getSeizure() {
         return Seizure;
@@ -27,15 +30,24 @@ public class Generalizedmotor {
     public Generalizedmotor() {
         super();
     }
-    public Generalizedmotor(String Gname) {
+    public Generalizedmotor(String Gname,List<Seizure> Seizure) {
         gmname=Gname;
+        this.Seizure=Seizure;
     }
 
-    public String getgmname() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getGmname() {
         return gmname;
     }
 
-    public void setgmname(String Gname) {
-        gmname = Gname;
+    public void setGmname(String gmname) {
+        this.gmname = gmname;
     }
 }

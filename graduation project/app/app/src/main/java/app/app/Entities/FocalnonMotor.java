@@ -1,21 +1,23 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class FocalnonMotor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer FocalnonMotorid;
+    private Integer id;
     @Column
     private String fnmname;
 
 
 
-    @ManyToMany(mappedBy = "focalnonMotors")
-    private List<Seizure> Seizure = new ArrayList<>();
+    @ManyToMany(mappedBy = "focalnonMotors",fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<Seizure> Seizure ;
 
     public List<Seizure> getSeizure() {
         return Seizure;
@@ -28,8 +30,17 @@ public class FocalnonMotor {
     public FocalnonMotor() {
         super();
     }
-    public FocalnonMotor(String fName) {
+    public FocalnonMotor(String fName, List<Seizure> Seizure) {
         fnmname=fName;
+        this.Seizure=Seizure;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFnmname() {

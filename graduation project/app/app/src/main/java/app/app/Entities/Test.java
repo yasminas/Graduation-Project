@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer TestId;
+    private Integer id;
     @Column
     private String TestType;
     @Column
@@ -22,18 +22,11 @@ public class Test {
     @JsonBackReference
     private lab lab;*/
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @JsonBackReference
+
     private Patient patient;
-
-    public String getLabAddress() {
-        return labAddress;
-    }
-
-    public void setLabAddress(String labAddress) {
-        this.labAddress = labAddress;
-    }
 
     public Patient getPatient() {
         return patient;
@@ -43,11 +36,39 @@ public class Test {
         this.patient = patient;
     }
 
-   /* public Test() {
-        super();
-    }*/
+
+
+
 
     public Test() {
+        super();
+    }
+
+
+
+
+   public Test(String TestType, String labName, String labAddress,int p_id) {
+       super();
+        this.labName = labName;
+        this.labAddress = labAddress;
+        this.TestType=TestType;
+       this.patient=new Patient(p_id);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getLabAddress() {
+        return labAddress;
+    }
+
+    public void setLabAddress(String labAddress) {
+        this.labAddress = labAddress;
     }
 
     public String getLabName() {
@@ -57,13 +78,6 @@ public class Test {
     public void setLabName(String labName) {
         this.labName = labName;
     }
-
-   /* public Test(String TestType, String labName, String labAddress) {
-        this.labName = labName;
-        this.labAddress = labAddress;
-        this.TestType=TestType;
-    }*/
-
 
 
     public String getTestType() {

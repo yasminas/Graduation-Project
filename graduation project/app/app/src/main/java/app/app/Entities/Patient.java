@@ -4,7 +4,6 @@ package app.app.Entities;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +12,7 @@ import java.util.Set;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
 
     @Column
     private String FName;
@@ -82,9 +81,41 @@ public class Patient {
 
 
 
+public Patient(int id) {
+    this.id = id;
+}
+
+
+@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+@JsonManagedReference
+
+    private Set<Seizure> seizure;
+
+    public Set<Seizure> getSeizure() {
+
+        return seizure;
+    }
+
+    public void setSeizure(Set<Seizure> seizure) {
+
+        this.seizure = seizure;
+
+    }
 
 
 
+
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    @JsonManagedReference
+
+    private Set<Dependent> dependent;
+
+    public Set<Dependent> getDependent() {
+        return dependent;
+    }
+    public void setDependent(Set<Dependent> dependent) {
+        this.dependent = dependent;
+    }
 
 
 
@@ -99,6 +130,8 @@ public class Patient {
         this.tests = tests;
     }
 
+
+
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<EEG> EEG;
@@ -110,65 +143,69 @@ public class Patient {
         this.EEG = EEG;
     }
 
+
+
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<NeuroScore> NeuroScore;
+    private Set<NeuroScore> neuroScore;
 
     public Set<NeuroScore> getNeuroScore() {
-        return NeuroScore;
+        return neuroScore;
     }
     public void setNeuroScore(Set<NeuroScore> neuroScore) {
-        NeuroScore = neuroScore;
+        this.neuroScore = neuroScore;
     }
 
 
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
     @JsonManagedReference
-    private Set<Seizure> seizure;
 
-    public Set<Seizure> getSeizure() {
-        return seizure;
-    }
-    public void setSeizure(List<Seizure> seizure) {
-        seizure = seizure;
-    }
-
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private Set<Imaging> Imaging;
+    private Set<Imaging> imaging;
 
     public Set<Imaging> getImaging() {
-        return Imaging;
+        return imaging;
     }
     public void setImaging(Set<Imaging> imaging) {
-        Imaging = imaging;
+       this.imaging = imaging;
     }
 
-    @OneToOne(mappedBy = "patient", cascade = CascadeType.ALL)
-    private History History;
+
+
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
+
+    private History history;
 
     public History getHistory() {
-        return History;
+        return history;
     }
     public void setHistory(History history) {
-        History = history;
-    }
-
-    @OneToMany(mappedBy = "patient")
-    private Set<FollowUp> followup ;
-
-    public Set<FollowUp> getFollowup() {
-        return followup;
-    }
-    public void setFollowup(Set<FollowUp> followup) {
-        this.followup = followup;
+        this.history = history;
     }
 
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<Comorbidities>  como= new ArrayList<>();
+
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private Set<SpecialHabits> specialhabits;
+
+    public Set<SpecialHabits> getSpecialhabits() {
+        return specialhabits;
+    }
+    public void setSpecialhabits(Set<SpecialHabits> specialhabits) {
+        this.specialhabits = specialhabits;
+    }
+
+
+
+
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Comorbidities> como;
 
     public List<Comorbidities> getComo() {
         return como;
@@ -178,50 +215,49 @@ public class Patient {
     }
 
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<SpecialHabits> specialhabits = new ArrayList<>();
 
-    public List<SpecialHabits> getSpecialhabits() {
-        return specialhabits;
-    }
-    public void setSpecialhabits(List<SpecialHabits> specialhabits) {
-        this.specialhabits = specialhabits;
+
+
+    @ManyToMany( cascade = CascadeType.ALL)
+    private List<AED>  aed;
+
+    public List<AED> getAed() {
+        return aed;
     }
 
-    @ManyToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private Set<AED>  AED;
-
-    public Set<AED> getAED() {
-        return AED;
-    }
-    public void setAED(Set<AED> AED) {
-        this.AED = AED;
+    public void setAed(List<AED> aed) {
+        this.aed = aed;
     }
 
 
-    @ManyToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private Set<SurgicalProcedures>  SurgicalProcedures;
 
-    public Set<SurgicalProcedures> getSurgicalProcedures() {
-        return SurgicalProcedures;
-    }
-    public void setSurgicalProcedures(Set<SurgicalProcedures> surgicalProcedures) {
-        SurgicalProcedures = surgicalProcedures;
-    }
+    @ManyToMany( cascade = CascadeType.ALL)
 
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-    private Set<Dependent> Dependent;
+    private List<SurgicalProcedures>  procedures;
 
-    public Set<Dependent> getDependent() {
-        return Dependent;
-    }
-    public void setDependent(Set<Dependent> dependent) {
-        Dependent = dependent;
+    public List<SurgicalProcedures> getProcedures() {
+        return procedures;
     }
 
+    public void setProcedures(List<SurgicalProcedures> procedures) {
+        this.procedures = procedures;
+    }
+
+
+/**
+     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+
+     private Set<FollowUp> followup ;
+
+     public Set<FollowUp> getFollowup() {
+     return followup;
+     }
+     public void setFollowup(Set<FollowUp> followup) {
+     this.followup = followup;
+     }
+
+
+**/
 
 
 
@@ -232,7 +268,10 @@ public class Patient {
 
 
 
-    public Patient(String FName,String MName, String LName,List<SpecialHabits> specialhabits, List<Comorbidities>  como,String sex, Integer age,Integer Doctorid,
+    public Patient(String FName, String MName, String LName, Set<SpecialHabits> specialhabits,
+                   List<Comorbidities>  como,List<SurgicalProcedures> procedures,
+                   List<AED>  aed,
+                   String sex, Integer age, Integer Doctorid,
                    Integer PNumber, String education, String occupation,
                    String maritalstatus, Boolean activedriving, Boolean familyConsanguinity, Integer menarcheAge
             , Integer prepreg, Boolean seekpreg, String seizurefreedom, String regularity
@@ -242,9 +281,11 @@ public class Patient {
         this.FName = FName;
         this.MName = MName;
         this.LName = LName;
-        DoctorID=Doctorid;
+        //DoctorID=Doctorid;
         this.como=como;
         this.specialhabits=specialhabits;
+        this.procedures=procedures;
+        this.aed=aed;
         Sex = sex;
         Age = age;
         this.PNumber = PNumber;
@@ -488,11 +529,11 @@ public class Patient {
         ThreeD = threeD;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

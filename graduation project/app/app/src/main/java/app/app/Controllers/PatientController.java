@@ -1,14 +1,17 @@
 package app.app.Controllers;
 
 import app.app.Entities.Patient;
+import app.app.Repositories.DoctorRepo;
 import app.app.Repositories.PatientRepo;
+import app.app.Repositories.SeizureRepo;
 import app.app.Services.PatientService;
+import app.app.Services.SeizureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,16 +21,25 @@ public class PatientController  {
     PatientService patientService;
     @Autowired
     PatientRepo patientRepo;
+    @Autowired
+    SeizureRepo SeizureRepo;
+    @Autowired
+    SeizureService SeizureService;
+    @Autowired
+    private DoctorRepo Doctorrepo ;
 
     @CrossOrigin(origins = "*")
-    /**view list**/
-    @RequestMapping(value="/view",method = RequestMethod.GET)
-    public String getAllPatients(Model Entities)
-    {
-        List<Patient> patientlist = patientService.getAllPatient();
 
-        Entities.addAttribute("patients", patientlist);
-        return "list-patients";
+    /**view list**/
+    @RequestMapping(value="/view/{id}",method = RequestMethod.GET)
+    public List<Patient> getAllPatients(@PathVariable("id") Integer id,Model Entities)
+    {
+        List<Patient> persons=new ArrayList<>();
+        patientRepo.findAll().forEach(persons ::add);
+        System.out.println(persons.size());
+        System.out.println("Hellow ffrom the other side of the woorld");
+
+        return persons;
     }
      /**Adding new patient**/
     @RequestMapping(value="/addPatient",method = RequestMethod.POST)
@@ -53,17 +65,36 @@ public class PatientController  {
     @GetMapping("/edit/{id}")/**get by id **/
     public Patient getPatientById(@PathVariable(value = "id") Integer id) {
         Patient patient = patientRepo.findById(id);
-
-
          return patientRepo.findById(id);
     }
 
-       @PutMapping("/edit/{id}")
-    public Patient updatePatient(@PathVariable(value = "id") Integer id,
-                           @Valid @RequestBody Patient newpatient) {
-        Patient patient = patientRepo.findById(id);
-        /**for patient section **/
-        patient.setFName(newpatient.getFName());
+
+   @PutMapping("/edit/{id}")
+
+   public String updatePatient(@PathVariable int id,
+                               @RequestBody Patient newpatient )
+   {
+       Patient patient= patientRepo.findById(id);
+       newpatient.setId(id);
+       patient=newpatient;
+       patientRepo.save(newpatient);
+
+
+       return"updated";
+   }
+
+
+
+   /* public String updatePatient(@PathVariable(value = "id") Integer id,
+                                @Valid @RequestBody Patient newpatient )
+                                 {
+    */
+      /*  Patient patient = patientRepo.findById(id);
+
+
+
+           /**for patient section **/
+   /*    patient.setFName(newpatient.getFName());
         patient.setMName(newpatient.getMName());
         patient.setLName(newpatient.getLName());
         patient.setSex(newpatient.getSex());
@@ -92,12 +123,35 @@ public class PatientController  {
           patient.setLactating(newpatient.getLactating());
           patient.setThreeD(newpatient.getThreeD());
            patient.setSpecialhabits(newpatient.getSpecialhabits());
-           patient.setComo(newpatient.getComo());
+          patient.setComo(newpatient.getComo());
+/**For Seizure section**/
 
 
-           Patient updated = patientRepo.save(patient);
-        return updated;
-    }
+         /* Patient updated = patientRepo.save(patient);
+
+
+           return "updated";
+       }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

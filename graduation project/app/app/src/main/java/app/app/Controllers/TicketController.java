@@ -1,3 +1,4 @@
+/*
 package app.app.Controllers;
 
 import app.app.Dto.Filters;
@@ -21,3 +22,4 @@ public class TicketController {
         return  Ticketservices.barchart(filter);
     }
 }
+*/

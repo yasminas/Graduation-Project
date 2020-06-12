@@ -9,16 +9,20 @@ import java.sql.Date;
 public class NeuroScore {
         @Id
         @GeneratedValue(strategy = GenerationType.AUTO)
-        private Integer Score_ID;
+        private Integer id;
         @Column
         private Date Date;
         @Column
         private String Test;
         @Column
         private Integer Score;
-    @ManyToOne
+
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @JsonBackReference
+
     private Patient patient;
 
     public Patient getPatient() {
@@ -30,16 +34,26 @@ public class NeuroScore {
     }
 
 
+
     public NeuroScore() {
         super();
     }
 
 
-    public NeuroScore(Date date, Integer score,String test) {
-
+    public NeuroScore(Date date, Integer score,String test,int p_id) {
+        super();
         Date = date;
         Test =test;
         Score = score;
+        this.patient=new Patient(p_id);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Date getDate() {

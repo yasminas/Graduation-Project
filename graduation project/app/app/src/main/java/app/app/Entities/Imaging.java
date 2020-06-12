@@ -1,14 +1,15 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Imaging {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Imaging_ID;
+    private Integer id;
     @Column
     private String Final_impression;
 
@@ -33,17 +34,16 @@ public class Imaging {
     @Column
     private String Report;
 
-    @ManyToOne
-    @JoinColumn
-    private Patient patient;
 
 
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<Features> features = new ArrayList<>();
+
+
+
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Features> features ;
 
     public List<Features> getFeatures() {
         return features;
@@ -52,13 +52,28 @@ public class Imaging {
     public void setFeatures(List<Features> features) {
         this.features = features;
     }
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn
+@JsonBackReference
+
+private Patient patient;
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
 
     public Imaging() {
         super();
     }
 
 
-    public Imaging(String result,String final_impression,List<Features> features, String date, String sequences, Boolean contrast_enhancement, String lateralization, String distribution, String location_cortical, String location_subcortical, String details, String report) {
+    public Imaging(String result,String final_impression,List<Features> features, String date, String sequences, Boolean contrast_enhancement, String lateralization, String distribution, String location_cortical, String location_subcortical, String details, String report,int p_id) {
+        super();
         Final_impression = final_impression;
         Results=result;
         Date = date;
@@ -71,22 +86,16 @@ public class Imaging {
         Location_subcortical = location_subcortical;
         Details = details;
         Report = report;
+        this.patient=new Patient(p_id);
     }
 
-    public Integer getImaging_ID() {
-        return Imaging_ID;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setImaging_ID(Integer imaging_ID) {
-        Imaging_ID = imaging_ID;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getFinal_impression() {

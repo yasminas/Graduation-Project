@@ -3,14 +3,13 @@ package app.app.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class Seizure {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer Seizur_ID;
+    private Integer id;
     @Column
     private String Semiology;
     @Column
@@ -44,94 +43,11 @@ public class Seizure {
     @Column
     private String fabrile_description ;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @JsonBackReference
+
     private Patient patient;
-
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<Classification> classification = new ArrayList<>();
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<ASSFeatures> assfeatures = new ArrayList<>();
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<GeneralizednonMotor> generalizednonMotors = new ArrayList<>();
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<FocalnonMotor> focalnonMotors = new ArrayList<>();
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<FocalMotor> focalMotors = new ArrayList<>();
-
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
-    private List<Generalizedmotor> generalizedMotors = new ArrayList<>();
-
-
-    public List<FocalMotor> getFocalMotors() {
-        return focalMotors;
-    }
-
-    public void setFocalMotors(List<FocalMotor> focalMotors) {
-        this.focalMotors = focalMotors;
-    }
-
-    public List<Classification> getClassification() {
-        return classification;
-    }
-
-    public void setClassification(List<Classification> classification) {
-        this.classification = classification;
-    }
-
-    public List<ASSFeatures> getAssfeatures() {
-        return assfeatures;
-    }
-
-    public void setAssfeatures(List<ASSFeatures> assfeatures) {
-        this.assfeatures = assfeatures;
-    }
-
-    public List<GeneralizednonMotor> getGeneralizednonMotors() {
-        return generalizednonMotors;
-    }
-
-    public void setGeneralizednonMotors(List<GeneralizednonMotor> generalizednonMotors) {
-        this.generalizednonMotors = generalizednonMotors;
-    }
-
-    public List<FocalnonMotor> getFocalnonMotors() {
-        return focalnonMotors;
-    }
-
-    public void setFocalnonMotors(List<FocalnonMotor> focalnonMotors) {
-        this.focalnonMotors = focalnonMotors;
-    }
-
-    public List<Generalizedmotor> getGeneralizedMotors() {
-        return generalizedMotors;
-    }
-
-    public void setGeneralizedMotors(List<Generalizedmotor> generalizedMotors) {
-        this.generalizedMotors = generalizedMotors;
-    }
 
     public Patient getPatient() {
         return patient;
@@ -141,12 +57,89 @@ public class Seizure {
         this.patient = patient;
     }
 
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private List<Classification> classification ;
+
+    public List<Classification> getClassification() {
+        return classification;
+    }
+    public void setClassification(List<Classification> classification) {
+        this.classification = classification;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private List<ASSFeatures> assfeatures ;
+
+    public List<ASSFeatures> getAssfeatures() {
+        return assfeatures;
+    }
+    public void setAssfeatures(List<ASSFeatures> assfeatures) {
+        this.assfeatures = assfeatures;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private List<GeneralizednonMotor> generalizednonMotors ;
+
+    public List<GeneralizednonMotor> getGeneralizednonMotors() {
+        return generalizednonMotors;
+    }
+    public void setGeneralizednonMotors(List<GeneralizednonMotor> generalizednonMotors) {
+        this.generalizednonMotors = generalizednonMotors;
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<FocalnonMotor> focalnonMotors ;
+
+
+    public List<FocalnonMotor> getFocalnonMotors() {
+        return focalnonMotors;
+    }
+    public void setFocalnonMotors(List<FocalnonMotor> focalnonMotors) {
+        this.focalnonMotors = focalnonMotors;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+
+    private List<FocalMotor> focalMotors ;
+
+    public List<FocalMotor> getFocalMotors() {
+        return focalMotors;
+    }
+    public void setFocalMotors(List<FocalMotor> focalMotors) {
+        this.focalMotors = focalMotors;
+    }
+
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Generalizedmotor> generalizedMotors ;
+
+
+
+    public List<Generalizedmotor> getGeneralizedMotors() {
+        return generalizedMotors;
+    }
+
+    public void setGeneralizedMotors(List<Generalizedmotor> generalizedMotors) {
+        this.generalizedMotors = generalizedMotors;
+    }
+
+
+
     public Seizure() {
         super();
     }
 
 
-    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String mode,String semiology,  String duration, Integer number, String triggertype, String longest_period, Boolean symptom_appearance, String circadianRhythm, Boolean tendency_to_cluster, String events_genuine, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description) {
+    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String mode,String semiology,  String duration, Integer number, String triggertype, String longest_period, Boolean symptom_appearance, String circadianRhythm, Boolean tendency_to_cluster, String events_genuine, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description,int p_id) {
+        super();
         Semiology = semiology;
         Mode=mode;
         this.focalMotors = focalMotors;
@@ -169,7 +162,9 @@ public class Seizure {
         Age_of_onset = age_of_onset;
         Age_of_onset_fabrile = age_of_onset_fabrile;
         this.fabrile_description = fabrile_description;
+        this.patient=new Patient(p_id);
     }
+
 
     public String getSemiology() {
         return Semiology;
@@ -220,12 +215,12 @@ public class Seizure {
         Longest_period = longest_period;
     }
 
-    public Integer getSeizur_ID() {
-        return Seizur_ID;
+    public Integer getId() {
+        return id;
     }
 
-    public void setSeizur_ID(Integer seizur_ID) {
-        Seizur_ID = seizur_ID;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getSymptom_appearance() {
@@ -296,7 +291,19 @@ public class Seizure {
         return fabrile_description;
     }
 
+
     public void setFabrile_description(String fabrile_description) {
         this.fabrile_description = fabrile_description;
     }
+
+
+
+
+
+
+
+
+
+
 }
+

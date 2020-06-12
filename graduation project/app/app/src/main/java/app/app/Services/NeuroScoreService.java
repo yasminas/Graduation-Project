@@ -1,3 +1,4 @@
+/*
 package app.app.Services;
 
 import app.app.Entities.NeuroScore;
@@ -21,3 +22,4 @@ public class NeuroScoreService {
         return response;
     }
 }
+*/
