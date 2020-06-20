@@ -1,7 +1,6 @@
 package app.app.Services;
 
 import app.app.Entities.Patient;
-import app.app.Repositories.DoctorRepo;
 import app.app.Repositories.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,8 +40,13 @@ public List<Patient> getAllPatient()
         return response;
     }
 
-
-
+    public ResponseEntity<Patient> vpatient(Integer id) {
+        Patient patient=new Patient();
+        ResponseEntity<Patient> response;
+        patient=patientRepo.findOne(id);
+        response = new ResponseEntity<>(patient, HttpStatus.OK);
+        return response;
+    }
 
 
     /**Updating**/

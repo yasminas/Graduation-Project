@@ -1,7 +1,9 @@
 package app.app.Entities;
 //import com.fasterxml.jackson.annotation.JsonManagedReference;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -81,13 +84,13 @@ public class Patient {
 
 
 
-public Patient(int id) {
-    this.id = id;
-}
+    public Patient(int id) {
+        this.id = id;
+    }
 
 
-@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
-@JsonManagedReference
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+    @JsonManagedReference
 
     private Set<Seizure> seizure;
 
@@ -166,7 +169,7 @@ public Patient(int id) {
         return imaging;
     }
     public void setImaging(Set<Imaging> imaging) {
-       this.imaging = imaging;
+        this.imaging = imaging;
     }
 
 
@@ -244,7 +247,7 @@ public Patient(int id) {
     }
 
 
-/**
+    /**
      @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
 
      private Set<FollowUp> followup ;
@@ -257,13 +260,13 @@ public Patient(int id) {
      }
 
 
-**/
+     **/
 
 
 
 
     public Patient() {
-         super();
+        super();
     }
 
 

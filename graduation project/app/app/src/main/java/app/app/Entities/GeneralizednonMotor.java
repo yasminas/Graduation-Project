@@ -1,11 +1,15 @@
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class GeneralizednonMotor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,8 +17,9 @@ public class GeneralizednonMotor {
     @Column
     private String gnname;
 
-    @JsonIgnore
     @ManyToMany(mappedBy = "generalizednonMotors",fetch = FetchType.LAZY)
+    @JsonIgnore
+
     private List<Seizure> Seizure ;
 
     public List<Seizure> getSeizure() {

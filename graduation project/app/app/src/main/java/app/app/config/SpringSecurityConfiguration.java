@@ -22,9 +22,9 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(" /resetpass","/addPatient","/adddependent","/addscore",
                         "/addeeg","/loaddata","/loadimg","/addhabit","/addcomo","/addAED",
                         "/addtest", "/addhistory","/addprocedure","/addfeature","/addimaging",
-                        "/addseizure","/addfocal","/addGM","/addGNM","/Register","/login","/forgetpass",
+                        "/addseizure","/addfocal","/addGM","/addGNM","/Register","/login","/forgetpass","/vPatient",
                         "/verifycode","/logout","/uploadFile","/addmapping","/loaddata","/showservices",
-                        "/adduser","/BarChart","/removeuser","/edit","/createPatient","/delete/{id}","/delete","/edit/{id}","/view/{id}","/update","/followup").permitAll()
+                        "/adduser","/BarChart","/removeuser","/edit","/createPatient","/delete/{id}","/delete","/edit/{id}","/view/{id}","/view","/update","/followup").permitAll()
              //   .antMatchers("").hasAuthority("admin")
                 .antMatchers("removeuser").hasAuthority("user")
                 .anyRequest().authenticated();

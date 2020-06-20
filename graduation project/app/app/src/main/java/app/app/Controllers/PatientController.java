@@ -30,7 +30,20 @@ public class PatientController  {
 
     @CrossOrigin(origins = "*")
 
+
+
     /**view list**/
+    @RequestMapping(value="/view",method = RequestMethod.GET)
+    public List<Patient> getAllPatients( Model Entities)
+    {
+        List<Patient> persons=new ArrayList<>();
+        patientRepo.findAll().forEach(persons ::add);
+        System.out.println(persons.size());
+        System.out.println("Hellow ffrom the other side of the woorld");
+
+        return persons;
+    }
+    /**details**/
     @RequestMapping(value="/view/{id}",method = RequestMethod.GET)
     public List<Patient> getAllPatients(@PathVariable("id") Integer id,Model Entities)
     {
@@ -41,6 +54,14 @@ public class PatientController  {
 
         return persons;
     }
+
+
+    /**view patient**/
+   @RequestMapping(value="/view/{id}",method = RequestMethod.POST)
+    public ResponseEntity<Patient> vpatient( @RequestParam("id") Integer id) {
+        return  patientService.vpatient(id);
+    }
+
      /**Adding new patient**/
     @RequestMapping(value="/addPatient",method = RequestMethod.POST)
     public ResponseEntity<Boolean> Addpatient(@RequestBody Patient patient) {

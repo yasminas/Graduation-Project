@@ -1,11 +1,15 @@
 package app.app.Entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+
 public class Seizure {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +50,6 @@ public class Seizure {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
     @JsonBackReference
-
     private Patient patient;
 
     public Patient getPatient() {
@@ -60,7 +63,6 @@ public class Seizure {
 
 
     @ManyToMany(cascade = CascadeType.ALL)
-
     private List<Classification> classification ;
 
     public List<Classification> getClassification() {
