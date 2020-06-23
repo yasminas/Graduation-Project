@@ -1,14 +1,18 @@
 
 package app.app.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-class FollowUp{
+ public class FollowUp{
 
-    @EmbeddedId
-     private FollowUpKey id =new FollowUpKey();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
 
     @Column
     private Date last_visit;
@@ -26,9 +30,7 @@ class FollowUp{
     private String AED_modifing;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("doctorId")
 
     private Doctor doctor;
 
@@ -42,7 +44,8 @@ class FollowUp{
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("patientId")
+    @JoinColumn
+    @JsonBackReference
     private Patient patient;
     public Patient getPatient() {
         return patient;
@@ -70,11 +73,12 @@ class FollowUp{
         this.doctor=new Doctor(d_id);
 
     }
-    public FollowUpKey getId() {
+
+    public int getId() {
         return id;
     }
 
-    public void setId(FollowUpKey id) {
+    public void setId(int id) {
         this.id = id;
     }
 

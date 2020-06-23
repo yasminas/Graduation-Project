@@ -1,4 +1,4 @@
-
+/*
 package app.app.Entities;
 
 import javax.persistence.Embeddable;
@@ -59,3 +59,4 @@ super();
         return Objects.equals(getPatientId(), other.getPatientId()) && Objects.equals(getDoctorId(), other.getDoctorId());
     }
 }
+*/

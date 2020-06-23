@@ -1,10 +1,9 @@
-/*package app.app.Repositories;
+package app.app.Repositories;
 
-import app.app.Entities.FollowUpKey;
+import app.app.Entities.FollowUp;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface followRepo extends CrudRepository<FollowUpKey, Integer> {
+public interface followRepo extends CrudRepository<FollowUp, Integer> {
 }
-*/

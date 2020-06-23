@@ -247,8 +247,9 @@ public class Patient {
     }
 
 
-    /**
+
      @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL)
+     @JsonManagedReference
 
      private Set<FollowUp> followup ;
 
@@ -260,7 +261,7 @@ public class Patient {
      }
 
 
-     **/
+
 
 
 

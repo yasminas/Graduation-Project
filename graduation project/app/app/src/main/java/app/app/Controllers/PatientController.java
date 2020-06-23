@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/")
-public class PatientController  {
+public class PatientController {
     @Autowired
     PatientService patientService;
     @Autowired
@@ -26,29 +26,16 @@ public class PatientController  {
     @Autowired
     SeizureService SeizureService;
     @Autowired
-    private DoctorRepo Doctorrepo ;
+    private DoctorRepo Doctorrepo;
 
     @CrossOrigin(origins = "*")
 
 
-
     /**view list**/
-    @RequestMapping(value="/view",method = RequestMethod.GET)
-    public List<Patient> getAllPatients( Model Entities)
-    {
-        List<Patient> persons=new ArrayList<>();
-        patientRepo.findAll().forEach(persons ::add);
-        System.out.println(persons.size());
-        System.out.println("Hellow ffrom the other side of the woorld");
-
-        return persons;
-    }
-    /**details**/
-    @RequestMapping(value="/view/{id}",method = RequestMethod.GET)
-    public List<Patient> getAllPatients(@PathVariable("id") Integer id,Model Entities)
-    {
-        List<Patient> persons=new ArrayList<>();
-        patientRepo.findAll().forEach(persons ::add);
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
+    public List<Patient> getAllPatients(Model Entities) {
+        List<Patient> persons = new ArrayList<>();
+        patientRepo.findAll().forEach(persons::add);
         System.out.println(persons.size());
         System.out.println("Hellow ffrom the other side of the woorld");
 
@@ -56,22 +43,20 @@ public class PatientController  {
     }
 
 
-    /**view patient**/
-   @RequestMapping(value="/view/{id}",method = RequestMethod.POST)
-    public ResponseEntity<Patient> vpatient( @RequestParam("id") Integer id) {
-        return  patientService.vpatient(id);
-    }
-
-     /**Adding new patient**/
-    @RequestMapping(value="/addPatient",method = RequestMethod.POST)
+    /**
+     * Adding new patient
+     **/
+    @RequestMapping(value = "/addPatient", method = RequestMethod.POST)
     public ResponseEntity<Boolean> Addpatient(@RequestBody Patient patient) {
-        return  patientService.addpatient(patient);
+        return patientService.addpatient(patient);
     }
 
 
-    /** Deleting value**/
+    /**
+     * Deleting value
+     **/
 
-    @DeleteMapping ("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deletePatient(@PathVariable("id") Integer id, Model Entities) {
         Patient patient = patientRepo.findById(id);
         patientRepo.delete(patient);
@@ -80,29 +65,50 @@ public class PatientController  {
 
     }
 
-    /**Updating **/
 
-
-    @GetMapping("/edit/{id}")/**get by id **/
+    /**
+     * details for one patient
+     **/
+    @GetMapping("/view/{id}")
+/**get by id **/
     public Patient getPatientById(@PathVariable(value = "id") Integer id) {
         Patient patient = patientRepo.findById(id);
-         return patientRepo.findById(id);
+        return patientRepo.findById(id);
+    }
+
+    /**
+     * Updating
+     **/
+
+    @PutMapping("/edit/{id}")
+
+    public String updatePatient(@PathVariable int id,
+                                @RequestBody Patient newpatient) {
+        Patient patient = patientRepo.findById(id);
+        newpatient.setId(id);
+        patient = newpatient;
+        patientRepo.save(newpatient);
+
+
+        return "updated";
     }
 
 
-   @PutMapping("/edit/{id}")
-
-   public String updatePatient(@PathVariable int id,
-                               @RequestBody Patient newpatient )
-   {
-       Patient patient= patientRepo.findById(id);
-       newpatient.setId(id);
-       patient=newpatient;
-       patientRepo.save(newpatient);
+}
 
 
-       return"updated";
-   }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -263,4 +269,4 @@ public class PatientController  {
 
 
 
-}
+

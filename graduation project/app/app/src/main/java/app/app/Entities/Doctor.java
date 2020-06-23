@@ -27,7 +27,7 @@ private Integer code;
 
 
 
-      @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+      @OneToMany(mappedBy = "doctor",cascade = CascadeType.ALL)
 
       private Set<FollowUp> followup ;
 

@@ -27,6 +27,8 @@ public List<Patient> getAllPatient()
         return new ArrayList<Patient>();
     }
 }
+
+
 /**creating**/
   public ResponseEntity<Boolean> addpatient(Patient patient)
     {
@@ -40,13 +42,7 @@ public List<Patient> getAllPatient()
         return response;
     }
 
-    public ResponseEntity<Patient> vpatient(Integer id) {
-        Patient patient=new Patient();
-        ResponseEntity<Patient> response;
-        patient=patientRepo.findOne(id);
-        response = new ResponseEntity<>(patient, HttpStatus.OK);
-        return response;
-    }
+
 
 
     /**Updating**/

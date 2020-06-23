@@ -1,7 +1,7 @@
-/*
+
 package app.app.Controllers;
 
-import app.app.Entities.FollowUpKey;
+import app.app.Entities.FollowUp;
 import app.app.Services.followService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +16,7 @@ public class followupController {
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value="/followup",method = RequestMethod.POST)
-    public ResponseEntity<Boolean> Addfollowup(@RequestBody FollowUpKey followup) {
+    public ResponseEntity<Boolean> Addfollowup(@RequestBody FollowUp followup) {
         return  followservice.followup(followup);
     }
 }
-*/

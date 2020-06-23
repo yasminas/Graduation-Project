@@ -11,7 +11,7 @@ public interface PatientRepo  extends CrudRepository<Patient, Integer> {
     List<Patient> findById(Integer id);
 
     void deleteById(Integer id);
- * @return**/
+ **/
 Patient findById(Integer id);
 
 
