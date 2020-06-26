@@ -1,7 +1,9 @@
 package app.app.Services;
 
+import app.app.Entities.FollowUp;
 import app.app.Entities.Patient;
 import app.app.Repositories.PatientRepo;
+import app.app.Repositories.followRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +17,8 @@ public class PatientService {
 
 @Autowired
     PatientRepo patientRepo;
-
+    @Autowired
+    followRepo followrepo;
 /** get list **/
 public List<Patient> getAllPatient()
 {
@@ -42,7 +45,14 @@ public List<Patient> getAllPatient()
         return response;
     }
 
+    public ResponseEntity<Boolean> followup(FollowUp followup)
+    {
 
+        ResponseEntity<Boolean> response;
+        followrepo.save(followup);
+        response = new ResponseEntity<>(true, HttpStatus.OK);
+        return response;
+    }
 
 
     /**Updating**/

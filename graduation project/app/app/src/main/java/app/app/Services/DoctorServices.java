@@ -1,6 +1,5 @@
 package app.app.Services;
-
-import app.app.Entities.Doctor;
+import app.app.Entities.Doc;
 import app.app.Repositories.DoctorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,9 +21,10 @@ public class DoctorServices {
     private DoctorRepo Doctorrepo ;
 
     // add user
-    public  ResponseEntity<Boolean> addDoctor(Doctor Doctor) {
+    public  ResponseEntity<Boolean> addDoctor(Doc Doctor) {
         ResponseEntity<Boolean> response;
-        Doctor temp = Doctorrepo.findByEmail(Doctor.getEmail());
+        Doc temp = Doctorrepo.findByEmail(Doctor.getEmail());
+
         System.out.println(Doctor.getEmail());
         if (temp == null ) {
             Doctor.setPassword(hashPassword(Doctor.getPassword()));
@@ -41,10 +41,10 @@ public class DoctorServices {
     }
 
     // remove user
-    public ResponseEntity<Boolean> removeDoctor(Doctor doctor) {
+    public ResponseEntity<Boolean> removeDoctor(Doc doctor) {
         ResponseEntity<Boolean> response;
         System.out.println(doctor.getEmail());
-        Doctor temp = Doctorrepo.findByEmail(doctor.getEmail());
+        Doc temp = Doctorrepo.findByEmail(doctor.getEmail());
         if (temp != null && temp.getIsdeleted()==false) {
             temp.setIsdeleted(true);
             Doctorrepo.save(temp);
@@ -58,16 +58,18 @@ public class DoctorServices {
 
 
     // login
-    public ResponseEntity<String> login(Doctor doctor, HttpSession session) throws MessagingException, javax.mail.MessagingException {
+    public ResponseEntity<String> login(Doc doctor, HttpSession session) throws MessagingException, javax.mail.MessagingException {
         ResponseEntity<String> response;
         session.setAttribute("Email",doctor.getEmail());
-        Doctor temp1 =Doctorrepo.findByEmail(doctor.getEmail());
+        Doc temp1 =Doctorrepo.findByEmail(doctor.getEmail());
         boolean checkpss= checkPass(doctor.getPassword(),temp1.getPassword());
         if (temp1 != null && temp1.getIsdeleted()==false && checkpss==true ) {
             //Integer code= sendemail(temp1.getEmail());
-            Doctorrepo.delete(temp1);
+            //Doctorrepo.delete(temp1);
+           // Doctor temp= new Doctor();
+            //temp=temp1;
             // temp1.setCode(code);
-            Doctorrepo.save(temp1);
+            //Doctorrepo.save(temp);
             response = new ResponseEntity<>("login Asuccessfully", HttpStatus.OK);
             return response;
         } else {
@@ -141,8 +143,8 @@ public class DoctorServices {
 
      }*/
 
-    public ResponseEntity<String> forgetpass(Doctor doctor) throws javax.mail.MessagingException, MessagingException {
-        Doctor temp=Doctorrepo.findByEmail(doctor.getEmail());
+    public ResponseEntity<String> forgetpass(Doc doctor) throws javax.mail.MessagingException, MessagingException {
+        Doc temp=Doctorrepo.findByEmail(doctor.getEmail());
         ResponseEntity<String> response;
 
         if(temp!=null)
@@ -161,8 +163,8 @@ public class DoctorServices {
             return response;
         }
     }
-    public ResponseEntity<String> resetpass(Doctor user, Integer code) {
-        Doctor temp=Doctorrepo.findByEmail(user.getEmail());
+    public ResponseEntity<String> resetpass(Doc user, Integer code) {
+        Doc temp=Doctorrepo.findByEmail(user.getEmail());
         ResponseEntity<String> response;
         Integer logcode= temp.getCode();
         System.out.println(logcode);

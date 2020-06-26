@@ -1,6 +1,6 @@
 package app.app.Controllers;
 
-import app.app.Entities.Doctor;
+import app.app.Entities.Doc;
 import app.app.Repositories.DoctorRepo;
 import app.app.Services.DoctorServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,8 @@ import javax.servlet.http.HttpSession;
 
 
 @RestController
+@RequestMapping("/")
+
 public class DoctorController {
 
     @Autowired
@@ -22,18 +24,18 @@ public class DoctorController {
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/Register", method = RequestMethod.POST)
-    public ResponseEntity<Boolean> addDoctor(@RequestBody Doctor doctor) {
+    public ResponseEntity<Boolean> addDoctor(@RequestBody Doc doctor) {
         return Doctorservices.addDoctor(doctor);
     }
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/removeDoctor", method = RequestMethod.POST)
-    public ResponseEntity<Boolean> removeDoctor(@RequestBody Doctor doctor) throws Exception {
+    public ResponseEntity<Boolean> removeDoctor(@RequestBody Doc doctor) throws Exception {
         return Doctorservices.removeDoctor(doctor);
     }
     @CrossOrigin(origins = "*")
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<String> login(@RequestBody Doctor doctor, HttpSession session) throws Exception {
+    public ResponseEntity<String> login(@RequestBody Doc doctor, HttpSession session) throws Exception {
 
         return Doctorservices.login(doctor, session);
     }
@@ -44,12 +46,12 @@ public class DoctorController {
     }*/
     @CrossOrigin(origins = "*")
     @RequestMapping(value="/forgetpass",method = RequestMethod.POST)
-    public ResponseEntity<String> forgetpass(@RequestBody Doctor doctor) throws MessagingException {
+    public ResponseEntity<String> forgetpass(@RequestBody Doc doctor) throws MessagingException {
         return  Doctorservices.forgetpass(doctor);
     }
     @CrossOrigin(origins = "*")
     @RequestMapping(value="/resetpass",method = RequestMethod.POST)
-    public ResponseEntity<String> resetpass(@RequestBody Doctor doctor, @RequestParam("code") Integer code) throws MessagingException {
+    public ResponseEntity<String> resetpass(@RequestBody Doc doctor, @RequestParam("code") Integer code) throws MessagingException {
         return  Doctorservices.resetpass(doctor,code);
     }
     @CrossOrigin(origins = "*")

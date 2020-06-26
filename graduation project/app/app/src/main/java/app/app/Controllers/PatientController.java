@@ -1,5 +1,6 @@
 package app.app.Controllers;
 
+import app.app.Entities.FollowUp;
 import app.app.Entities.Patient;
 import app.app.Repositories.DoctorRepo;
 import app.app.Repositories.PatientRepo;
@@ -91,6 +92,12 @@ public class PatientController {
 
 
         return "updated";
+    }
+
+    @CrossOrigin(origins = "*")
+    @RequestMapping(value="/follow",method = RequestMethod.POST)
+    public ResponseEntity<Boolean> Addfollowup(@RequestBody FollowUp followup) {
+        return  patientService.followup(followup);
     }
 
 

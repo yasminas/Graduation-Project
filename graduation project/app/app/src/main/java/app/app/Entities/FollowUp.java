@@ -30,14 +30,16 @@ import java.sql.Date;
     private String AED_modifing;
 
 
+
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
 
-    private Doctor doctor;
+    private Doc doctor;
 
-    public Doctor getDoctor() {
+    public Doc getDoctor() {
         return doctor;
     }
-    public void setDoctor(Doctor doctor) {
+    public void setDoctor(Doc doctor) {
         this.doctor = doctor;
     }
 
@@ -70,7 +72,7 @@ import java.sql.Date;
         this.triggering_factors = triggering_factors;
         this.AED_modifing = AED_modifing;
         this.patient=new Patient(p_id);
-        this.doctor=new Doctor(d_id);
+        this.doctor=new Doc(d_id);
 
     }
 
