@@ -70,7 +70,7 @@ public class SurgicalProcedures {
         Type = type;
     }
 
-    public java.sql.Date getDate() {
+    public Date getDate() {
         return Date;
     }
 

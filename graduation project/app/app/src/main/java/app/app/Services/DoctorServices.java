@@ -76,7 +76,6 @@ public class DoctorServices {
             response = new ResponseEntity<>("Not Allowed", HttpStatus.BAD_REQUEST);
             return response;
         }
-
     }
     private String hashPassword(String plainTextPassword){
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());

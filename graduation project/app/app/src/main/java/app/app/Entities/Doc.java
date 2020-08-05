@@ -13,9 +13,9 @@ public class Doc {
     @Column
     private String lname;
     @Column
-    private  String email;
+    public  String email;
     @Column
-    private String password;
+    public String password;
     @Column
     private Boolean isdeleted;
     @Column
