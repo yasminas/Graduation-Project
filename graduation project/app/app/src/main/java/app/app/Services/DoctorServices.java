@@ -71,9 +71,12 @@ public class DoctorServices {
             // temp1.setCode(code);
             //Doctorrepo.save(temp);
             response = new ResponseEntity<>("login Asuccessfully", HttpStatus.OK);
+            System.out.println("kolo 100 100 ");
             return response;
         } else {
             response = new ResponseEntity<>("Not Allowed", HttpStatus.BAD_REQUEST);
+            System.out.println(" msh kolo 100 100 ");
+
             return response;
         }
     }
