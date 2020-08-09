@@ -1,0 +1,1028 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>information</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Font Awesome JS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/info-style.css">
+   
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+	    <div class="container-fluid">
+	        <div class="AddPatient ">
+	            <div class="row">
+	                <div class="col-sm-12 col-md-6 col-xm-12">
+	                     <h4>Add Patient</h4>
+	                </div>
+	                <div class="col-sm-12 col-md-6 " >
+	                    <button class="btn btn-secondary  ">
+	                      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+	                      Back
+	                    </button>
+	                </div>
+	            </div>
+               
+            </div>
+            <ul class="nav nav-tabs" >
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">Personal information</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link " href="Seizure-info.html">Seizure information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="MedicalHistory">Medical History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="Follow-up.html">Follow-Up & AED</a>
+              </li>
+              
+              
+            </ul>
+
+            <div class="Medical-History">
+            	<fieldset class="main-info">
+            		<legend class="MedicalHistoryLegand">Labs</legend>
+            		<div class="form-row">
+            			<div class="col-md-4">
+            				<label class="col-form-label-lg">Date:</label>
+            				<input type="date" name="LabDate" class="form-control form-control-lg">	
+            			</div>	
+            		</div>
+
+            		<div class="form-row check radio " style="margin-top: 10px;">
+            			<div class="col-md-6">
+            				<label class="col-form-label-lg block">Type: <span>More than choice is avaliable</span></label>
+            				<input type="checkbox" name="LabType"> CBC
+            				<input type="checkbox" name="LabType"> LFT
+            				<input type="checkbox" name="LabType"> KFT
+            				<input type="checkbox" name="LabType"> Ca
+            				<input type="checkbox" name="LabType"> Mg
+            				<input type="checkbox" name="LabType"> Blood sugar
+            				<input type="checkbox" name="LabType"> Others
+            			</div>
+            			
+            		</div> 	
+
+            		<hr class="mt-5">	
+            	</fieldset>
+
+                <!-- start EEg table -->
+
+            	<fieldset class="main-info">
+            		<legend class="MedicalHistoryLegand">EEG</legend>
+            		
+            		<div class="report" style="margin-left: 70px;">		
+		        		<label class="col-form-label-lg">Upload Report:</label>
+			            <input type="file" name="" style="border: unset ! important" ; class=" form-control-lg">
+		            </div>
+		            <hr >
+			       
+			        
+            		
+            		<div class="form-row">
+            			<div class="col-md-4">
+	        				<label class="col-form-label-lg">Date:</label>
+	        				<input type="date" name="LabDate" class="form-control form-control-lg">		
+            			</div>	
+
+            			
+            				
+            		</div>
+
+            		<div class="form-row">
+            			<div class="col-md-4 col-sm-6">
+            				<div class="form-group ">
+	                          <label for="ScalpEEG " class="col-form-label-lg">Scalp EEG</label>
+	                          <select class="form-control form-control-lg selection" id="ScalpEEG">
+	                            <option>Done and report available</option>
+	                            <option>Done but no report available</option>
+	                            <option>Others</option>
+	                            <option>Not done</option>
+	                          </select>
+
+                      		</div>	
+            			</div>		
+            		</div>
+            		<hr class="mt-5">
+
+            		<div class="form-row">
+            			<div class="col-md-4 radio">
+            				<label for="EEGType" class="col-form-label-lg block">Type?</label>
+			                <input type="radio" name="EEGType" value="" id="" class=""> Routine
+			                <input type="radio" name="EEGType" value="" id=""> Long term <br>
+			                <input type="radio" name="EEGType" value="" id=""> Video EEG 
+			                <input type="radio" name="EEGType" value="" id=""> Others
+            						
+            			</div>
+
+            			<div class="col-md-3 radio" >
+	        				 <label for="EEGResults" class="col-form-label-lg block">Results?</label>
+			                 <input type="radio" name="EEGResults" value="" id="Normal" class=""> Normal <br>
+			                 <input type="radio" name="EEGResults" value="" id="Abnormal"> Abnormal
+			            				
+            			</div>
+
+            			<div class="col-md-5 radio">
+            				<label for="EEGDetails" class="col-form-label-lg block">Details:</label>
+            				<textarea class="form-control form-control-lg" placeholder="please Specify here .."></textarea>
+
+            				
+            			</div>	
+            		</div>
+
+            		<div class="form-row" style="margin-top: 20px;">
+            			<div class="col-md-4">
+            				<div class="form-group ">
+	                          <label for="Reason " class="col-form-label-lg">Reason</label>
+	                          <select class="form-control form-control-lg selection" id="Reason">
+	                            <option>Research</option>
+	                            <option>Non- epileptic vs</option>
+	                            <option>epileptic event</option>
+	                            <option>Classification of epileptic event</option>
+	                            <option>Others</option>
+	                          </select>
+                      		</div>
+            				
+            			</div>
+
+            			<div class="col-md-4">
+            				<div class="form-group ">
+	                          <label for="Source of EEG " class="col-form-label-lg">Source of EEG</label>
+	                          <select class="form-control form-control-lg selection" id="Source of EEG">
+	                            <option>Outpatient</option>
+	                            <option>EEG lab</option>
+	                            <option>Inpatient</option>
+	                            <option>epilepsy monitoring unit</option>
+	                            <option>ICU</option>
+	                            <option>Ambulatory</option>
+	                            <option>Others</option>
+	                            <option>Don't know</option>
+	                          </select>
+                      		</div>
+            				
+            			</div>
+
+            			<div class="col-md-4">
+            				<div class="form-group ">
+	                          <label for="BehavioralState" class="col-form-label-lg">Behavioral state recorded</label>
+	                          <select class="form-control form-control-lg selection" id="BehavioralState">
+	                            <option>Awake</option>
+	                            <option>Sleep</option>
+	                            <option>Awake and Sleep</option>
+	                            <option>Unresponsive</option>
+	                            <option>ICU</option>
+	                            <option>Undetermined</option>
+	                            <option>Others</option>
+	                          </select>
+                      		</div>	
+            			</div>	
+            		</div>
+            		<hr class="mt-5">
+            		<div class="form-row">
+            			<div class="col-md-3">
+            				<div class="form-group ">
+	                          <label for="ProvocativeMeasures" class="col-form-label-lg">Provocative measures</label>
+	                          <select class="form-control form-control-lg selection" id="ProvocativeMeasures">
+	                            <option>Drowsiness</option>
+	                            <option>Sleep</option>
+	                            <option>Hyperventilation</option>
+	                            <option>Photic stimulation</option>
+	                            <option>Drug withdrawal</option>
+	                            <option>Others</option>
+	                          </select>
+                      		</div>	
+            			</div>	
+
+            			<div class="col-md-4 radio" style="margin-left: 30px;">
+            				<label for="Posterior" class="col-form-label-lg block">Posterior dominant rhythm present?</label>
+			                <input type="radio" name="Posterior" value="" id="" class=""> Yes
+			                <input type="radio" name="Posterior" value="" id=""> No <br>	
+            			</div>			
+            		</div>
+
+            		<div class="form-row">
+            			<div class="col-md-5">
+            				<label class="col-form-label-lg">Frequency of PDR during relaxed wakefulness:</label>
+                            <input type="text" name="" value="" class="form-control-lg form-control">	
+            			</div>
+
+            			<div class="col-md-4">
+            				<label class="col-form-label-lg">Total number of seizures during EEG:</label>
+                            <input type="number" name="" value="" class="form-control-lg form-control">
+            				
+            			</div>
+            			
+            		</div>
+            		<hr class="mt-5">
+
+            		<div class="form-row">
+            			<div class="col-md-3 col-sm-6">
+            				<label class="col-form-label-lg">Interictal abnormalities:</label>
+                            <input type="text" name="" value="" class="form-control-lg form-control">
+            				
+            			</div>
+
+            			<div class="col-md-3 col-sm-6">
+            				<div class="form-group ">
+	                          <label for=" DischargeLocation" class="col-form-label-lg">Interictal Discharge location</label>
+	                          <select class="form-control form-control-lg selection" id="DischargeLocation">
+	                            <option>Localized focal</option>
+	                            <option>Localized lobar</option>
+	                            <option>Hemispherical</option>
+	                            <option>Generalized</option>
+	                            <option>Non localized</option>
+	                            <option>Others</option>
+	                            <option>Undetermined</option>
+	                          </select>
+                      		</div>	
+            				
+            			</div>
+
+            			<div class="col-md-3 col-sm-6">
+            				<div class="form-group ">
+	                          <label for=" LocalizedLobe" class="col-form-label-lg">Localized lobe</label>
+	                          <select class="form-control form-control-lg selection" id="LocalizedLobe">
+	                            <option>Frontal temporal</option>
+	                            <option>Parietal </option>
+	                            <option>Occipital</option>
+	                            <option>Others</option>
+	                            <option>Undetermined</option>
+	                          </select>
+                      		</div>	
+            				
+            			</div>
+
+            			<div class="col-md-3 col-sm-6 radio">
+            				<label for="LocalizedSide" class="col-form-label-lg block">Localized side?</label>
+			                <input type="radio" name="LocalizedSide" value="" id="" class=""> Right 
+			                <input type="radio" name="LocalizedSide" value="" id=""> Left 
+            				
+            			</div>
+            			
+            		</div>
+
+            		<div class="form-row">
+            			<div class="col-md-4">
+            				<div class="form-group ">
+	                          <label for=" InterictalCircumstances" class="col-form-label-lg">Interictal Circumstances</label>
+	                          <select class="form-control form-control-lg selection" id="InterictalCircumstances">
+	                            <option>Awake</option>
+	                            <option>Sleep </option>
+	                            <option>Drowsy</option>
+	                            <option>Hyperventilation</option>
+	                            <option>Photic stimulation</option>
+	                            <option>Others</option>
+	                            <option>Undetermined</option>
+	                          </select>
+                      		</div>	
+            				
+            			</div>
+
+            			<div class="col-md-4">
+            				
+            				<div class="form-group ">
+	                          <label for=" InterictalFrequency" class="col-form-label-lg">Interictal frequency</label>
+	                          <select class="form-control form-control-lg selection" id="InterictalFrequency">
+	                            <option>/10 sec</option>
+	                            <option>Frequent </option>
+	                            <option>Occasional</option>
+	                            <option>Rare</option>
+	                            <option>Undetermined</option>
+	                          </select>
+                      		</div>	
+            				
+            			</div>
+            				
+            			
+
+            			<div class="col-md-4">
+            				<div class="form-group ">
+	                          <label for=" InterictalPattern" class="col-form-label-lg">Interictal special pattern</label>
+	                          <select class="form-control form-control-lg selection" id="InterictalPattern">
+	                            <option>Triphasic</option>
+	                            <option>PLED </option>
+	                            <option>BiPLED</option>
+	                            <option>Burst suppression</option>  
+	                            <option>Near suppression</option>
+	                            <option>Complete suppression</option>
+	                            <optgroup>Undetermined</optgroup>
+	                            <option>Others</option>
+	                          </select>
+                      		</div>	
+            				
+            			</div>		
+            		</div>
+
+            		<div class="form-row radio">
+            			<div class="col-md-5">
+            				<div class="text">
+	            				<i class="fa fa-commenting-o" aria-hidden="true"></i>
+	            				<label for="" class="col-form-label-lg block">Comment:</label>
+	            				
+	            			</div>
+            				
+            				<textarea class="form-control form-control-lg" rows="4" placeholder="please Specify here .." style="margin-top: 10px;"></textarea>
+            			</div>	
+            		</div>
+
+            		<hr class="mt-5">
+
+            		<div class="form-row radio">
+            			<div class="col-md-4">
+            				<label for="IctalAbnormalities" class="col-form-label-lg block">Ictal abnormalities?</label>
+			                <input type="radio" name="IctalAbnormalities" value="" id="Yes"> Yes <br>
+			                <input type="radio" name="IctalAbnormalities" value="" id="No"> No <br>
+			                <input type="radio" name="IctalAbnormalities" value="" id="Undetermined"> Undetermined	
+            			</div>
+
+            			<div class="col-md-5">
+            				<label for="AreIctalFeatures" class="col-form-label-lg block">Are ictal features the same for all seizures?</label>
+			                <input type="radio" name="AreIctalFeatures" value="" id="Yes"> Yes <br>
+			                <input type="radio" name="AreIctalFeatures" value="" id="No"> No <br>
+			                <input type="radio" name="AreIctalFeatures" value="" id="Undetermined"> Undetermined	
+            			</div>	
+
+            			<div class="col-md-3">
+            				<label for="LocalizedSide" class="col-form-label-lg block">Localized side?</label>
+			                <input type="radio" name="LocalizedSide" value="" id="Yes"> Yes <br>
+			                <input type="radio" name="LocalizedSide" value="" id="No"> No 
+			               	
+            			</div>	
+            		</div>
+
+            		<div class="form-row">
+            			<div class="col-md-4">
+            				<div class="form-group " style="margin-top: 20px;">
+	                          <label for=" IctalOnsetLocation" class="col-form-label-lg">Ictal onset location on EEG </label>
+	                          <select class="form-control form-control-lg selection" id="IctalOnsetLocation">
+	                            <option>Localized focal</option>
+	                            <option>Localized lobar </option>
+	                            <option>Hemispherical</option>
+	                            <option>Generalized</option>
+	                            <option>Non localized</option>
+	                            <option>Others</option>
+	                          </select>
+                      		</div>			
+            			</div>
+            			
+            		</div>
+
+            		<hr class="mt-5">
+            		<div class="form-row">
+            			<div class="col-md-3">
+            				<div class="form-group ">
+	                          <label for=" IctalOnsetPattern" class="col-form-label-lg">Ictal onset pattern </label>
+	                          <select class="form-control form-control-lg selection" id="IctalOnsetPattern">
+	                            <option>Genenralised tonic clonic</option>
+	                            
+	                            <option>Diffuse fast rhythm</option>
+	                            <option> Diffuse attenuation Rhythmic </option>
+	                            <option>Paroxysmal discharge-sharp waves</option>
+	                            <option>Paroxysmal discharge-spike waves</option> 
+	                            <option>Paroxysmaldischarge-polyspike waves</option>
+	                            <option>Paroxysmal discharge-others</option>
+	                            <option>Others</option>
+	                            <option>Undetermined</option>
+	                          </select>
+                      		</div>	
+
+            				
+            			</div>
+
+            			<div class="col-md-3">
+            				<div class="form-group ">
+	                          <label for=" IctalOnsetWith" class="col-form-label-lg">Ictal onset With </label>
+	                          <select class="form-control form-control-lg selection" id="IctalOnsetWith">
+	                            <option>Sleep</option>
+	                            <option>Drowsiness</option>
+	                            <option>Hyperventilation</option>
+	                            
+	                            <option>Photic stimulation</option>
+	                            <option>Others</option>
+	                            
+	                          </select>
+                      		</div>
+                      	</div>	
+                      </div>
+                      <div class="form-row">
+
+                      	<div class="col-md-3 radio">
+                      		<label for="FocalSlowing" class="col-form-label-lg block">Focal slowing?</label>
+			                <input type="radio" name="FocalSlowing" value="" id="Yes"> Yes <br>
+			                <input type="radio" name="FocalSlowing" value="" id="No"> No 
+                      		
+                      	</div>
+
+                      	<div class="col-md-3 radio">
+                      		<label for="GeneralisedSlowing" class="col-form-label-lg block">Generalised slowing?</label>
+			                <input type="radio" name="GeneralisedSlowing" value="" id="Yes"> Yes <br>
+			                <input type="radio" name="GeneralisedSlowing" value="" id="No"> No 
+                      		
+                      	</div>
+                      </div>
+                      <hr class="mt-5">
+                      <div class="form-row">
+                      	<div class="col-md-4">
+                      		<div class="form-group ">
+	                          <label for=" EEGSLowing" class="col-form-label-lg">EEG slowing </label>
+	                          <select class="form-control form-control-lg selection" id="EEGSLowing">
+	                            <option>None</option>
+	                            <option>Persistent</option>
+	                            <option>Transient</option>
+	                            
+	                            <option>Postictal</option>
+	                            <option>Others</option>
+	                            <option>undetermined</option>
+	                            
+	                          </select>
+                      		</div>
+                      	</div>
+
+                      	<div class="col-md-4">
+                      		<div class="form-group ">
+	                          <label for="Location" class="col-form-label-lg">Location </label>
+	                          <select class="form-control form-control-lg selection" id="Location">
+	                            <option>Localized focal</option>
+	                            <option>Localized lobar</option>
+	                            <option>Hemispherical</option>
+	                            
+	                            <option>Generalized</option>
+	                            <option>Non localized</option>
+	                            <option>Others</option>
+	                            
+	                          </select>
+                      		</div>
+                      	</div>
+
+                      	<div class="col-md-4">
+                      		<div class="form-group ">
+	                          <label for="LocalizedLobe" class="col-form-label-lg">Localized lobe </label>
+	                          <select class="form-control form-control-lg selection" id="LocalizedLobe">
+	                            <option>Localized focal</option>
+	                            <option>Parietal</option>
+	                            <option>Occipital</option>
+	                            
+	                            <option>Other</option>
+	                            <option>Undetermined</option>
+	                           
+	                            
+	                          </select>
+                      		</div>
+                      	</div>
+                      	
+                      </div>
+
+                      <div class="form-row radio check">
+                      	<div class="col-md-4">
+                      		<label for="Side" class="col-form-label-lg block"> Side?</label>
+			                <input type="radio" name="LocalizedSide" value="" id="Yes"> Left <br>
+			                <input type="radio" name="LocalizedSide" value="" id="No"> Right
+                      	</div>
+                      	
+                      	<div class="col-md-4">
+                      		<label for="Attenuation" class="col-form-label-lg block"> Attenuation?</label>
+			                <input type="radio" name="Attenuation" value="" id=""> None 
+			                <input type="radio" name="Attenuation" value="" id=""> Focal <br>
+			                <input type="radio" name="Attenuation" value="" id=""> generalized 
+			                <input type="radio" name="Attenuation" value="" id=""> others
+
+                      	</div>
+                      	
+                      </div>	
+            	</fieldset>
+                <!-- end EEG table -->
+
+
+                <!-- Imaging table -->
+
+                <fieldset class="main-info">
+                    <legend class="MedicalHistoryLegand">Imaging</legend>
+                    <div class="report" style="margin-left: 70px;">     
+                        <label class="col-form-label-lg">Upload Report:</label>
+                        <input type="file" name="" style="border: unset ! important" ; class=" form-control-lg">
+                    </div>
+                    <hr >
+                   
+                    
+                    
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-form-label-lg">Date scan performed:</label>
+                            <input type="date" name="LabDate" class="form-control form-control-lg">     
+                        </div> 
+
+                        <div class="col-md-4">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Sequences</label>
+                              <select class="form-control form-control-lg selection" id="Sequences">
+                                <option>Standard MRI imaging</option>
+                                <option>MRI epilepsy protocol</option>
+                                <option>MRI with contrast</option>
+                                <option>ASL</option>
+                                <option>PET</option>
+                                <option>Spect</option>
+                                
+                                <option>Others:</option>  
+                                
+                              </select>
+                            </div>    
+                        </div> 
+
+                        <div class="col-md-4 radio">
+                            <label for="Contrast" class="col-form-label-lg block"> Contrast enhancement?</label>
+                            <input type="radio" name="Contrast" value="" id="Yes"> Yes 
+                            <input type="radio" name="Contrast" value="" id="No"> No
+
+                            
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-row">
+                        <div class="col-md-3 ">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Results</label>
+                              <select class="form-control form-control-lg " id="Results">
+                                <option>Normal</option>
+                                <option>Abnormal</option>
+                                <option>Incidental finding</option>
+                                <option>not related to epilepsy</option>
+                                <option>Not known</option>
+                            
+                              </select>
+                            </div>    
+                            
+                                    
+                        </div>
+
+                        <div class="col-md-3 " >
+                             <div class="form-group" >
+                              <label class="col-form-label-lg">Sequences</label>
+                              <select class="form-control form-control-lg " id="Sequences">
+                                <option>Mesial temporal sclerosis</option>
+                                <option>Malformation of Cortical development (MCD)</option>
+                                <option>Vascular abnormalities</option>
+                                <option>Neoplasm Inflammatory</option>
+                                <option>Infection</option>
+                                <option>Atrophy</option>
+                                <option>Undetermined</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="form-row">
+
+                        <div class="col-md-6 radio">
+                            <div class="text">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <label for="" class="col-form-label-lg block">Details:</label>
+                                
+                            </div>
+                            
+                            <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;"></textarea>   
+                        </div> 
+
+                        <div class="col-md-4 radio check">
+                            <label for="Lateralization" class="col-form-label-lg block"> Lateralization?</label>
+                            <input type="radio" name="Lateralization" value="" id="Yes"> Not available 
+                            <input type="radio" name="Lateralization" value="" id="No"> Left <br>
+                            <input type="radio" name="Lateralization" value="" id="No"> Right 
+                            <input type="radio" name="Lateralization" value="" id="No"> Unknown 
+
+                        </div>
+                    </div>
+
+                    <hr class="mt-5">
+
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Distribution</label>
+                              <select class="form-control form-control-lg " id="Distribution">
+                                <option>Unifocal</option>
+                                <option>Multifocal</option>
+                                <option>multiloba</option>
+                                <option>Hemispheric</option>
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Location cortical</label>
+                              <select class="form-control form-control-lg " id="Location cortical">
+                                <option>Frontal-dorsolateral</option>
+                                <option>Frontal-mesial</option>
+                                <option>Frontal-polar</option>
+                                <option>Orbito-frontal</option>
+                                <option>Temporal-lateral</option>
+                                <option>Temporal-mesial</option>
+                                <option>Temporal-polar</option>
+                                <option>Parietal-dorsolateral</option>
+                                <option>Parietal-mesial</option>
+                                <option>Occipital-basal</option>
+                                <option>Occipital-mesial</option>
+                                <option>Occipital-lateral</option> 
+                                <option>Insular</option> 
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                        </div>
+
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Location subcortical</label>
+                              <select class="form-control form-control-lg " id="LocationSubcortical">
+                                <option>Basal ganglia</option>
+                                <option>Thalamus</option>
+                                <option>Periventricular</option>
+                                <option>Grey-white Junction</option>
+                                <option>White matter</option>
+                                <option>Callosal</option>
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Features</label>
+                              <select class="form-control form-control-lg " id="Features">
+                                <option>Agenesis</option>
+                                <option>Atrophy</option>
+                                <option>Cortical</option>
+                                <option>Dysgenesis</option>
+                                <option>Cystic</option>
+                                <option>Encephalomalacia</option>
+                                <option>Migration abnormality</option>
+                                <option>Hypertrophy</option>
+                                <option>Hyperplasia</option>
+                                <option>Hypoplasia</option>
+                                <option>Decreased white matter distinction</option>
+                                <option>Malformations</option> 
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                        </div>
+                        
+                    </div> 
+                </fieldset>
+                <!-- end Imaging table --> 
+
+                <!--  Neuropsychological Tests Scores -->
+                <fieldset class="main-info">
+                    <legend class="MedicalHistoryLegand">Neuropsychological Tests Scores</legend>
+
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-form-label-lg">Date:</label>
+                            <input type="date" name="TestDate" class="form-control form-control-lg">   
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="col-form-label-lg">Type of test:</label>
+                            <input type="text" name="TestType" class="form-control form-control-lg">   
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="col-form-label-lg">Score:</label>
+                            <input type="text" name="TsetScore" class="form-control form-control-lg">   
+                        </div>
+                        
+                    </div>
+
+                </fieldset>
+                <!--- end Neuropsychological Tests Scores --->
+
+                <!-- Surgical procedure performed  -->
+                <fieldset class="main-info">
+                    <legend class="MedicalHistoryLegand">Surgical procedure performed</legend>
+                     <div class="form-row">
+                        <div class="col-md-4">
+                            <label class="col-form-label-lg">Date:</label>
+                            <input type="date" name="SurgeryDate" class="form-control form-control-lg">   
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Type of procedure</label>
+                              <select class="form-control form-control-lg " id="ProType">
+                                <option>Anterior temporal lobectomy</option>
+                                <option>Amygdalahippocampectomy</option>
+                                <option>Estratemporal resection</option>
+                                <option>Hemispherectomy</option>
+                                <option>Lesionectomy</option>
+                                <option>Multilopar resection</option>
+                                <option>Multiple subpial resection</option>
+                                <option>Corpus callosotomy</option>
+                                <option>gamma knife radiosurgery</option>
+                                <option>deep brain stimulation</option>
+                                <option>vagus nerve stimulation</option>
+                                <option>trigeminal nerve stimulation</option> 
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Side</label>
+                              <select class="form-control form-control-lg " id="ProSide">
+                                <option>Right</option>
+                                <option>Left</option>
+                                <option>Bilateral</option>
+                                <option>Dominant</option>
+                                <option>Non-dominant</option>
+                                <option>UnKnown</option>
+                                <option>Others</option>  
+                                
+                              </select>
+                            </div>    
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Intraoperative EcoG</label>
+                              <select class="form-control form-control-lg " id="EcoG">
+                                <option>Pre-resection</option>
+                                <option>Post-resection</option>
+                                <option>UnKnown</option>
+                                <option>None</option>  
+                                
+                              </select>
+                            </div>    
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-row radio">
+                        <div class="col-md-6">
+                            <div class="text">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <label for="" class="col-form-label-lg block">Pathology:</label>
+                            
+                            </div>
+                            
+                            <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;"></textarea> 
+
+                        </div> 
+                    </div>
+                </fieldset>
+
+                <!-- end Surgical procedure performed -->
+
+                <!-- Impression --->
+                 <fieldset class="main-info">
+                    <legend class="MedicalHistoryLegand">Impression</legend>
+                    <div class="form-row">
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Diagnosis</label>
+                              <select class="form-control form-control-lg " id="Diagnosis">
+                                <option>Epilepsy</option>
+                                <option>Non-epileptic seizures</option>
+                                <option>Psychogenic NES</option>    
+                              </select>
+                            </div> 
+                            
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">2017 classification</label>
+                              <select class="form-control form-control-lg " id="classification">
+                                <option>Focal aware motor</option>
+                                <option>Focal unaware non-motor</option>
+                                <option>Estratemporal resection</option>
+                                <option>Focal impaired awareness motor</option>
+                                <option>Focal impaired awareness non-motor</option>
+                                <option>Generalized motor</option>
+                                <option>Generalized non motor</option>
+                              </select>
+                            </div> 
+                            
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Age of onset</label>
+                              <select class="form-control form-control-lg " id="onsetAge">
+                                <option>Neonatal</option>
+                                <option>Infancy</option>
+                                <option>Childhood</option>
+                                <option>Adolescence</option>
+                                <option>Adult</option>
+                                <option>Elderly</option>
+                              </select>
+                            </div> 
+                            
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Etiology</label>
+                              <select class="form-control form-control-lg " id="Etiology">
+                                <option>Idiopathic (genetic)</option>
+                                <option>Structural Metabolic</option>
+                                <option>Estratemporal resection</option>
+                                <option>Immune Infection</option>
+                                <option>UnKnown</option>
+                                
+                                
+                              </select>
+                            </div> 
+                            
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-row radio">
+                        <div class="col-md-4">
+                            <div class="text">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <label for="" class="col-form-label-lg block">Epilepsy syndrome:</label>
+                            
+                            </div>
+                            
+                            <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;"></textarea> 
+
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="text">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <label for="" class="col-form-label-lg block">Final diagnosis:</label>
+                            
+                            </div>
+                            
+                            <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;"></textarea> 
+
+                            
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="text">
+                                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                <label for="" class="col-form-label-lg block">Comments:</label>
+                            
+                            </div>
+                            
+                            <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;"></textarea> 
+
+                            
+                        </div>
+                        
+                    </div>
+
+                    <hr class="mt-5">
+                    <div class="form-row">
+
+                        <div  class="col-md-4">
+                            <div class="form-group" >
+                              <label class="col-form-label-lg">Counselling on</label>
+                              <select class="form-control form-control-lg " id="Counselling">
+                                <option>1st aid Precautions</option>
+                                <option>Restrictions</option>
+                                <option>Medications</option>
+                                <option>Preganacy Contraception</option>
+                                <option>Sexual life</option>
+                                <option>Psychological issues</option>
+                                <option>SUDEP</option>
+                                <option>AED side effects</option>
+                                <option>None</option>
+                                
+                                
+                              </select>
+                            </div> 
+
+
+                            
+                        </div>
+                        
+                    </div>
+
+
+
+                </fieldset>
+
+
+                <!-- end Impression -->
+            
+        </div>
+
+
+            <div class="mt-5 " style="text-align: center;">
+
+               
+                <a href="Follow-up.html" class="button btn btn-secondary" id="Back">
+                  
+                  <i class="fa fa-arrow-left"></i>
+                  Back
+                </a>
+                
+
+                <a href="" class="button btn btn-primary" id="Submit">
+                  Submit
+                  <i class="fa fa-arrow-right"></i>
+                </a>
+
+           
+            
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>

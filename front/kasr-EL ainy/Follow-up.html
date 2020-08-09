@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>information</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Font Awesome JS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/info-style.css">
+   
+
+</head>
+<body>
+	<div class="wrapper">
+      <div class="container-fluid">
+        <div class="AddPatient ">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-xm-12">
+                     <h4>Add Patient</h4>
+                </div>
+                <div class="col-sm-12 col-md-6 " >
+                    <button class="btn btn-secondary  ">
+                      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                      Back
+                    </button>
+                </div>
+            </div>
+             
+          </div>
+          <ul class="nav nav-tabs" >
+            <li class="nav-item">
+              <a class="nav-link" href="info.html">Personal information</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link " href="Seizure-info.html">Seizure information</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="MedicalHistory.html">Medical History</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="Follow-up.html">Follow-Up & AED</a>
+            </li>
+            
+            
+          </ul>
+
+          <div class="FollowUp">
+
+
+            <fieldset class="main-info ">
+              <legend class="FollowUpLegand">Follow-Up</legend>
+
+              <div class="row">
+                <div class="col-md-3 col-sm-6">
+                  <label class="col-form-label-lg">The duration since last visit?</label>
+                  <input type="text" name="" id="last_visit" class="block form-control-lg form-control" >    
+                </div>
+
+                <div class="col-md-6 col-sm-6 radio" style="padding-left:90px;" >
+                  <label for="" class="col-form-label-lg block">Was there are seizures since the last visit?</label>
+                  <input type="radio" name="LastVisit" value="Yes" id="last_visit_seizure" class="" onclick="show();"> Yes <br>
+                  <input type="radio" name="LastVisit" value="No" id="last_visit_seizure" onclick="hide();"> No
+                </div>
+
+                  <div id="Specify-freq" style="display: none; margin: 10px;">
+                    <label class="col-form-label-lg">what are their frequency per month?</label>
+                    <input type="text" name="" id="frequency_per_month" class="block form-control-lg form-control" > 
+                 </div>
+              
+                </div>  
+              </div>
+
+
+              <div class="row " style="margin-top: 15px;">
+                <div class="col-md-4  radio">
+                  <label for="" class="col-form-label-lg block">Is the patient compliant on AED?</label>
+                  <input type="radio" name="AEDcomplaint"  id="compliant_on_AED" value="yes" class="" onclick="AEDshow();"> Yes <br>
+                  <input type="radio" name="AEDcomplaint"  id="compliant_on_AED"  value="no" onclick="AEDhide();"> No
+                  <textarea id="SpecifyComplain" style="display: none; margin: 10px; " placeholder="What Complain ?" class="form-control"></textarea>
+                  
+               </div>
+
+               <div class="col-md-4  radio">
+                  <label for="" class="col-form-label-lg block">Is it the same seizure type?</label>
+                  <input type="radio" name="Type" value="Yes" id="same_seizure_type"  class=""> Yes <br>
+                  <input type="radio" name="Type" value="No" id="same_seizure_type" > No    
+               </div>
+
+               <div class="col-md-4">
+                <textarea id="typeArea" class="form-control" placeholder="What Type ?" rows="4" cols="5" style="margin-top: 10px;"></textarea>
+                 
+               </div>   
+              </div>
+
+              <hr class="mt-5">
+
+              <div class="row radio check">
+                <div class="col-md-6">
+                  <label for="" class="col-form-label-lg block">Identified triggering factors: <span> More than choice is avaliable</span></label>
+                  <input type="checkbox" name="trigger" value="Missed doses" id="triggering_factors" class=""> Missed doses
+                  <input type="checkbox" name="trigger" value="Hyperventilation" id="triggering_factors" > Hyperventilation
+                  <input type="checkbox" name="trigger" value="Sleep" id="triggering_factors" > Sleep
+                  <input type="checkbox" name="trigger" value=" Deprivation" id="triggering_factors" > Deprivation <br>
+                  <input type="checkbox" name="trigger" value="Emotional Stress" id="triggering_factors" > Emotional Stress
+                  <input type="checkbox" name="trigger" value="Physical stress" id="triggering_factors" > Physical stress
+                  <input type="checkbox" name="trigger" value="Drugs" id="triggering_factors" > Drugs
+                  <input type="checkbox" name="trigger" value=" Menses" id="triggering_factors" > Menses <br>
+                  <input type="checkbox" name="trigger" value="Fever illness" id="triggering_factors" > Fever illness
+                  <input type="checkbox" name="trigger" value="Others" id="triggering_factors" > Others
+                  <input type="checkbox" name="trigger" value=" None" id="triggering_factors" > None
+                </div>
+                
+              </div>
+
+              <hr class="mt-5">
+
+              <div class="row radio">
+                <div class="col-md-4 col-sm-6 ">
+                  <label for="" class="col-form-label-lg block">Will AED be modified?</label>
+                  <input type="radio" name="AED" value="Yes" id="aed_modifing" class=""> Yes <br>
+                  <input type="radio" name="AED" value="No" id="aed_modifing" class=""> No
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <label class="col-form-label-lg block">Specify?</label>
+                  <textarea id="aedM" class="form-control" cols="5" rows="3"></textarea>
+                  
+                </div>
+                
+              </div>
+              
+            </fieldset>
+
+            <fieldset class="main-info ">
+              <legend class="FollowUpLegand">AED</legend>
+
+
+              <div class="row ">
+                <div class="col-md-4 radio">
+                  <label for="" class="col-form-label-lg block" id="currentAED">Current AED:</label>
+                  <input type="checkbox" name=""  id="currentAED" class=""> CBZ 
+                  <input type="checkbox" name=""  id="currentAED" > VPA
+                  <input type="checkbox" name=""  id="currentAED" > PHT
+                  <input type="checkbox" name=""  id="currentAED" > LVT <br>
+                  <input type="checkbox" name=""  id="currentAED" > LMT 
+                  <input type="checkbox" name=""  id="currentAED" > LCS   
+                  <input type="checkbox" name=""  id="currentAED" > TPM  
+                  <input type="checkbox" name=""  id="currentAED" > CLZ <br>
+                  <input type="checkbox" name=""  id="currentAED" > PB 
+                      
+                </div>
+
+                <div class="col-md-4 radio">
+                  <label for="" class="col-form-label-lg block">Drug formulation:</label>
+                  <input type="checkbox" name=""  id="drug_formulation" class=""> Brand Generic 
+                  <input type="checkbox" name=""  id="drug_formulation" > Do not know
+                  <input type="checkbox" name=""  id="drug_formulation" > Extended  
+                </div>
+
+                <div class="col-md-3 radio">
+                  <label for="" class="col-form-label-lg block">Dose mg</label>
+                  <input type="text" name="" class="form-control form-control-lg" id="dose_mg">
+                  
+                </div>
+              </div>
+
+              <div class="row ">
+                <div class="col-md-4 radio">
+                  <label for="" class="col-form-label-lg block">Effectiveness?</label>
+                  <input type="radio" name=""  id="effectiveness" class=""> No 
+                  <input type="radio" name=""  id="effectiveness" > Mild
+                  <input type="radio" name=""  id="effectiveness" > Moderate <br>
+                  <input type="radio" name=""  id="effectiveness" > Marked
+                  <input type="radio" name=""  id="effectiveness" > Undetermined 
+                  
+                </div>
+
+                <div class="col-md-6 radio">
+                  <div class="text">
+                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                    <label for="" class="col-form-label-lg block">Side effect:</label>
+                            
+                  </div>
+                            
+                  <textarea class="form-control form-control-lg" placeholder="please Specify here .." rows="3" style="margin-top: 10px;" id="sideeffect"></textarea> 
+                  
+                </div>  
+              </div>
+            </fieldset>
+          </div>
+
+
+
+
+
+          <div class="mt-5 " style="text-align: center;">
+            <a href="Seizure-info.html" class="button btn btn-secondary" id="Back">
+              
+              <i class="fa fa-arrow-left"></i>
+              Back
+            </a>
+            
+
+            <a href="#" class="button btn btn-primary" id="FollowUp-submit" onclick="sendJSON()">
+              Submit
+              <i class="fa fa-arrow-right"></i>
+            </a>  
+         </div>
+
+        <p class="result" style="color:green; font-size: 20px; text-align: center;" ></p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+   
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    
+    <script type="text/javascript">
+      
+     function show() { document.getElementById('Specify-freq').style.display = 'block'; }
+     function hide() { document.getElementById('Specify-freq').style.display = 'none'; }
+
+
+     function AEDshow() { document.getElementById('SpecifyComplain').style.display = 'block'; }
+     function AEDhide() { document.getElementById('SpecifyComplain').style.display = 'none'; }
+
+    </script>
+
+    <script type="text/javascript">
+      function onSubmit( form ){
+        var data = JSON.stringify( $(form).serializeArray() ); //  <-----------
+
+          console.log( data );
+          return false; //don't submit
+        }
+
+    </script>
+
+
+   
+
+    
+
+    </div>
+  </div>
+</body>
+</html>
+
+<script type="text/javascript" src="js/FollowUp-main.js"></script>
+

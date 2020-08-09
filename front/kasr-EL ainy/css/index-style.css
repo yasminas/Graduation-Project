@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    background-color: #F0F0ED;
+    width: 1340px 
+}
+
+/* Start Part 1 */
+
+.part1 .sidebar .activeTab
+{
+	color: #5791ff;
+}
+
+.part1 {
+    float: left;
+    width: 243px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.part1 .search,
+.part1 .sidebar,
+.part1 .tail
+ {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #FFF;
+}
+
+.part1 .search input[type="search"] {
+    border: 0;
+    width: 200px;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #F7F7F7;
+}
+
+
+.part1 .tail input
+{
+	background-color: #90949c;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* End Part 1 */
+
+/* Start Part 2 */
+
+.part2 {
+    float: left;
+    width: 742px;
+    margin-left: 2%;
+    margin-top: 25px;
+}
+
+.part2 .logo {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../images/CUEU Final.jpg');
+}
+
+
+
+
+.part2 .latest,
+.part2 .posts,
+.part2 .features {
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: #FFF;
+}
+
+.part2 .latest h4,
+.part2 .posts h4,
+.part2 .features h4 {
+    position: relative;
+    font-size: 14px;
+    margin-top: 0;
+    padding: 20px;
+    background-color: #F7F7F7;
+    border-radius: 8px 8px 0 0;
+}
+
+.part2 .latest h4:after,
+.part2 .posts h4:after,
+.part2 .features h4:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    top: 56px;
+    left: 0px;
+    border-bottom: 1px solid #DDD;
+}
+
+.part2 .latest .activity {
+    overflow: hidden;
+    position: relative;
+    padding: 5px 15px 15px;
+}
+
+.part2 .latest .activity:first-of-type {
+    margin-top: 20px;
+}
+
+.part2 .latest .activity .image {
+    float: left;
+    margin-top: 5px;
+    margin-right: 1%;
+}
+
+.part2 .latest .activity .info {
+    width: 84%;
+    float: left;
+}
+
+.part2 .latest .activity .info p:first-of-type {
+    margin-bottom: 3px;
+}
+
+.part2 .latest .activity .info p:last-of-type span {
+    color: #000;
+}
+
+.part2 .latest .activity .info span {
+    font-size: 14px;
+    color: #777;
+}
+
+.part2 .latest .activity .info span ~ p {
+    color: #969696;
+    font-size: 14px;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.part2 .latest .activity:after {
+    content: '';
+    position: absolute;
+    width: 91%;
+    left: 30px;
+    bottom: 0;
+    border-bottom: 1px solid #DDD;
+}
+
+.part2 .latest button {
+    display: block;
+    width: 92%;
+    margin: auto;
+    padding: 13px;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 15px;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #F7F7F7;
+}
+
+.part2 .posts .post {
+    padding: 0 15px;
+    overflow: hidden;
+}
+
+.part2 .posts .post .image {
+    float: left;
+    width: 18%;
+    margin-top: 20px;
+    margin-right: 2%;
+}
+
+.part2 .posts .post .image img {
+    width: 100%;
+    height: 100px;
+    border-radius: 8px;
+}
+
+.part2 .posts .post .info {
+    width: 80%;
+    float: left;
+}
+
+.part2 .posts .post .info p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.part2 .posts .num {
+    float: right;
+    color: #969696;
+    margin-right: 20px;
+}
+
+.part2 .posts .num span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.part2 .posts .num span:first-of-type {
+    padding: 4px 6px;
+    border-radius: 4px;
+    background-color: #F0F0ED;
+}
+
+.part2 .features .feat {
+    float: left;
+    width: 22%;
+    margin: 20px 11px;
+}
+
+.part2 .features .feat .image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.part2 .features .feat p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* End Part 2 */
+

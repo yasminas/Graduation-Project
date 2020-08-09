@@ -1,0 +1,179 @@
+
+/* navbar */
+/*general */
+
+body
+{
+	height: 5500px;
+}
+
+body 
+{
+  background-image: url('../images/background.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  opacity: 1; 
+
+}
+
+.AddPatient 
+{
+	padding: 10px;
+	background-color: white;
+	text-align: center;
+	margin-top: 10px;
+	opacity: 0.85;
+	
+	
+}
+
+.nav-tabs {
+
+	margin-top: 20px;
+    border-bottom: 1px solid #000;
+}
+
+.nav-tabs .nav-link.active
+ {
+	color: #495057 !important;
+    background-color: unset !important;
+    border-bottom-color: #dce4ef !important;
+    border-top-color: #000;
+    border-right-color:#000;
+    border-left-color: #000;  
+}
+.nav-tabs .nav-link
+{
+	font-weight: 600;
+}
+
+
+
+/* form */
+.block
+{
+
+	display: block;
+
+}
+.main-info
+{
+	margin-top: 10px;
+	margin-right: 50px;
+	margin-left: 50px;
+	background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.85;
+    font-weight: 600;
+  
+    margin: 30px;
+    padding: 20px;
+	
+
+}
+.main-info input
+{
+	border: 1px solid #dee2e6;
+	margin-top: -10px;
+	
+	
+}
+span
+{
+	color:#818182;
+}
+
+/* for radio buttons color */
+
+.radio label
+{
+	color: #007bff;
+}
+
+/* for selection box */
+
+.selestion
+{
+	margin-top: 30px;
+}
+.selection 
+{
+	margin-top:   -10px;
+}
+
+
+
+/** for seizure history tab **/
+
+.SeizureHistoryLegand
+{
+	padding: 10px;
+	
+	padding-bottom: 25px;
+}
+
+
+
+/** for check box **/
+
+.check input
+{
+   margin: 5px;
+}
+
+/** for font icons with label **/
+.text label
+{
+	display: inline !important ;
+}
+
+/*** for females **/
+.female-pregnancy
+{
+ border: 3px solid #dee2e6;
+ padding: 20px;
+}
+
+.AddPatient-female
+{
+	padding: 10px;
+	
+	text-align: center;
+	margin-top: 10px;
+	opacity: 0.7;
+	
+	background-color: #f3bde1;
+	
+}
+
+.radio-female label
+{
+	color: #e880c6;
+
+}
+
+
+
+
+/** for Medical History **/
+.MedicalHistoryLegand
+{
+	padding: 10px;
+	color: #000;
+	padding-bottom: 25px;
+	font-size: 25px;
+}
+
+/** for follow-up **/
+
+.FollowUpLegand
+{
+	padding: 10px;
+	color: #000;
+	padding-bottom: 25px;
+	font-size: 25px;
+}
+
+
+

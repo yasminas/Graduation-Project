@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>information</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Font Awesome JS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="css/info-style.css">
+   
+
+</head>
+<body>
+	<div class="wrapper">
+        <div class="container-fluid">
+            <div class="AddPatient ">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-xm-12">
+                         <h4>Add Patient</h4>
+                    </div>
+                    <div class="col-sm-12 col-md-6 " >
+                        <button class="btn btn-secondary  ">
+                          <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+                          Back
+                        </button>
+                    </div>
+                </div>
+               
+            </div>
+            <ul class="nav nav-tabs" >
+              <li class="nav-item">
+                <a class="nav-link" href="info.html">Personal information</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link active" href="Seizure-info.html">Seizure information</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="MedicalHistory.html">Medical History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="Follow-up.html">Follow-Up & AED</a>
+              </li>
+              
+              
+            </ul>
+
+
+            <!-- start form -->
+            <div class="Seizure-History">
+          
+                <fieldset class="main-info " style="margin-top: 40px;">
+                  <legend class="SeizureHistoryLegand">Seizure History</legend>
+
+                  <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                      <label class="col-form-label-lg">Age of Onset:</label>
+                      <input type="text" name="AgeOfOnset" value="" class="form-control-lg form-control">
+                    </div>
+
+
+                     <div class="col-md-3 col-sm-6">
+                        <div class="form-group ">
+                          <label for="Mode of onset" class="col-form-label-lg">Mode of Onset</label>
+                          <select class="form-control form-control-lg selection" id="ModeOfOnset"> 
+                            <option>Focal Onset</option>
+                            <option>Generalized</option>
+                            <option>Unknown</option>
+                            </select>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group ">
+                          <label for="Classification" class="col-form-label-lg">Classification</label>
+                            <select class="form-control form-control-lg selection" id="Classification">
+                            <option>Focal aware</option>
+                            <option>Focal impaired awareness</option>
+                            <option>Focal to bilateral</option>
+                            <option>tonic-clonic</option>
+                            <option>Generalized</option>
+                            </select>
+                          </div>
+                      </div>
+
+                      <div class="col-md-3 col-sm-6 ">
+                        <div class="form-group ">
+                          <label for="FocalMotorOnset" class="col-form-label-lg">Focal motor onset</label>
+                          <select class="form-control form-control-lg selection" id="FocalMotorOnset">
+                            <option>Automatism</option>
+                            <option>Hyperkinetic</option>
+                            <option>Tonic</option>
+                            <option>Clonic</option>
+                            <option>Myoclonic </option>
+                            <option>Atonic </option>
+                            <option>Epileptic spasm </option>
+
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  
+                  <div class="row selestion">
+                    <div class="col-md-3 col-sm-6">
+                      <div class="form-group">
+                        <label for="FocalNon-motor " class="col-form-label-lg">Focal Non-motor(Aura)</label>
+                        <!-- Multiple selection -->
+                        <select class="form-control" id="FocalNon-motor" multiple="multiple" style="overflow-x: auto; height: 185px;">
+                          <optgroup label="Press Ctrl to select more..">
+
+                            <optgroup label="1.Autonomic">
+                              <option>CVS</option>
+                              <option>GIT</option>
+                              <option>GNU</option>
+                              <option>CUT</option>
+                              <option>RESP</option>
+                            </optgroup>
+                            <optgroup label="2.Behavioral arrest Psychic phenomena">
+                              <option>déjà vu or jamais vu</option>
+                              <option>depersonalization</option>
+                              <option>derealization</option>
+                            </optgroup>
+                            <optgroup label="3.Emotional">
+                              <option>Fear or anxiety</option>
+                              <option>dissociation</option>
+                            </optgroup>
+                            <option>4.Cognitive</option>
+                            <optgroup label="5.Somatosensory">
+                              <option>sensory</option>
+                              <option>elementary</option>
+                              <option>Olfactory gustatoryv</option>
+                              <option>Auditory)</option>
+                            </optgroup>
+                            
+                            
+                        </optgroup>
+                    </select>
+                  </div>
+                </div>  
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="Generalized-motor " class="col-form-label-lg">Generalized motor onset</label>
+                    <!-- Multiple selection -->
+                    <select class="form-control" id="Generalized-motor" multiple="multiple" style="overflow-x: auto; height: 185px;">
+                      <optgroup label="Press Ctrl to select more..">
+                        <option>TCS</option>
+                        <option>Tonic</option>
+                        <option>Clonic</option>
+                        <option>Myoclonic</option>
+                        <option>Atonic</option>
+                        <option>Epileptic spasm</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  
+                </div> 
+
+                <div class="col-md-3 col-sm-6">
+                  <div class="form-group">
+                    <label for="Generalized-NonMotor " class="col-form-label-lg">Generalized non-motor onset</label>
+                    <!-- Multiple selection -->
+                    <select class="form-control" id="Generalized-NonMotor" multiple="multiple" style="overflow-x: auto; height: 185px;">
+                      <optgroup label="Press Ctrl to select more..">
+                        <option>Typical</option>
+                        <option>Atypica</option>
+                        <option>Myoclonic</option>
+                        <option>Eyelid</option>
+                        <option>myoclonia</option>
+        
+                      </optgroup>
+                    </select>
+                  </div>  
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                 <div class="form-group">
+
+                  <label for="Semiology" class="col-form-label-lg">Semiology:</label>
+                  <textarea class="form-control" id="Semiology" rows="7" placeholder="symptoms during the seizure..." ></textarea>
+
+              </div>
+                        
+             </div> 
+              </div>
+
+              <hr class="mt-5">
+
+              <!-- 2nd row -->
+
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <div class="form-group ">
+                    <label for="Associated-features" class="col-form-label-lg">Associated features:</label>
+                    <select class="form-control form-control-lg " id="Associated-features" multiple="multiple" style="overflow-x: auto; height: 185px;"> 
+                      <optgroup label="Press Ctrl to select more ..">
+                        <option>Rolling eyes</option>
+                        <option>Tongue biting</option>
+                        <option>Frothing</option>
+                        <option>Cyanosis</option>
+                        <option>Incontinence</option>
+                        <option>Self trauma</option>
+                      </optgroup>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="col-md-2 col-sm-4 " style="margin-top: 120px;">
+                    <label for="Specify-features" class="col-form-label-lg">Specify Features</label>
+                    <i class="fa fa-arrow-right" style="color:  #007bff;"></i>
+                </div>
+
+                <div class="col-md-5 col-sm-4" style="margin-top:50px; ">
+                  <div class="form-group">
+                    <label for="Specify-features" class="col-form-label-lg"></label>
+                    <textarea class="form-control" id="Specify-features" rows="4" placeholder="Specify here..." ></textarea>
+
+                  </div>
+                </div>
+              </div>
+
+              <hr class="mt-5">
+
+              <!--3rd row -->
+              <div class="row radio" >
+
+                <div class="col-md-6 col-sm-6">
+                  <label for="" class="col-form-label-lg block">Is the Order of Symptom Appearence konwn?</label>
+                  <input type="radio" name="OrderSymptom" value="Male" id="Yes" class=""> Yes <br>
+                  <input type="radio" name="OrderSymptom" value="Female" id="No"> No
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <label for="NumberOfSeizure" class="col-form-label-lg block">Number of seizure types?</label>
+                  <input type="radio" name="NumberOfSeizure" value="Male" id="Single" class=""> Single <br>
+                  <input type="radio" name="NumberOfSeizure" value="Female" id="multiple"> multiple
+                </div>
+
+              </div>
+
+              <!-- fourth row -->
+              <div class="row">
+                <div class="col-md-4 col-sm-6 selestion">
+                  <label class="col-form-label-lg">Duration of the seizure:</label>
+                  <input type="text" name="SeizureDuration" value="" class="form-control-lg form-control ">
+                </div>
+            
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group selestion ">
+                    <label for="Post-ictal" class="col-form-label-lg">Post ictal</label>
+                    <select class="form-control form-control-lg selection " id="Post-ictal"> 
+                      <option>Nose whipping</option>
+                      <option>Lateralizing</option>
+                      <option>Cough</option>
+                      </select>
+                    </div>  
+                </div>
+              </div>
+
+              <hr class="mt-5">
+              <!-- fifth row -->
+
+              <div class="row ">
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="CircadianRhythm" class="col-form-label-lg">Circadian Rhythm</label>
+                    <!-- Multiple selection -->
+                    <select class="form-control" id="CircadianRhythm" multiple="multiple" style="overflow-x: auto; height: 185px;">
+                      <optgroup label="Press Ctrl to select more..">
+                        <option>Diurnal</option>
+                        <option>During sleep only</option>
+                        <option>On awakening</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  
+
+                  
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="TriggerType" class="col-form-label-lg">Trigger Type</label>
+                    <!-- Multiple selection -->
+                    <select class="form-control" id="TriggerType" multiple="multiple" style="overflow-x: auto; height: 185px;">
+                      <optgroup label="Press Ctrl to select more..">
+                        <option>Reflexive</option>
+                        <option>Special Stimulus</option>
+                        <option>Photic(Light flashes, TV Computer Video games)</option>
+                        <option>Sound</option>
+                        <option>Tactile</option>
+                        <option>Hyperventilation</option>
+                        <option>Sleep</option>
+                        <option>Deprivation</option>
+                        <option>Emotional Stress</option>
+                        <option>Physical stress</option>
+                        <option>Fever illness</option>
+                        <option>Menses</option>
+                        <option>Drugs</option>
+                        <option>Others</option>
+                        <option>None</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                  <div class="form-group">
+                    <label for="Post-ictal: " class="col-form-label-lg">Post ictal</label>
+                    <!-- Multiple selection -->
+                    <select class="form-control" id="Post-ictal" multiple="multiple" style="overflow-x: auto; height: 185px; ">
+                      <optgroup label="Press Ctrl to select more..">
+                      
+                        <option>Lateralizing</option>
+                        <option>Nose whipping</option>
+                        <option>Cough</option>
+                        <option>Facial asymm (Todd's paresis)</option>
+                        <option>speech preservation</option>
+                        <option>Aphasia</option>
+                        <option>Vomiting</option>
+                        <option>Crying</option>
+                        <option>Drowsiness</option>
+                        <option>Amnesia</option>
+                        <option>Impaired cognition</option>
+                        <option>Headache</option>
+                        <option>Psychosis</option>
+                        <option>Others specify:</option>
+                      </optgroup>
+                     
+                    </select>
+                  </div>
+                  
+                </div>
+                
+              </div>
+
+              <!-- sixth row -->
+              <div class="row">
+                <div class="col-md-5 col-sm-6">
+                  <label class="col-form-label-lg">Frequency per month at the onset before AED:</label>
+                  <input type="text" name="FrequencyBefore" value="" class="form-control-lg form-control">
+               </div>
+
+               <div class="col-md-4 col-sm-6 ">
+                  <label class="col-form-label-lg">FrequencyAfter per month after AED:</label>
+                  <input type="text" name="Frequency" value="" class="form-control-lg form-control">
+               </div>
+
+
+             </div>
+             <div class="row">
+
+               <div class="col-md-4 col-sm-6 ">
+                    <label class="col-form-label-lg">Longest seizure free period:</label>
+                    <input type="text" name="seizureFreePeriod" value="" class="form-control-lg form-control">
+               </div>
+             </div>
+
+
+
+
+                </fieldset>
+              </form>
+
+
+              <form name="Seizure-History">
+                <fieldset class="main-info seizureHistory" style="margin-top: 40px;">
+                  <legend class="SeizureHistoryLegand">Status Epileptics History</legend>
+
+                  <!-- first row -->
+                  <div class="row radio">
+                    <div class="col-md-6 col-sm-6 ">
+                      <label for="" class="col-form-label-lg block">History of prolonged seizures > 5min?</label>
+                      <input type="radio" name="HistoryOfProlongedSeizures" value="Male" id="Yes" class=""> Yes <br>
+                      <input type="radio" name="HistoryOfProlongedSeizures" value="" id="No"> No
+                    </div>
+
+
+                    <div class="col-md-6 col-sm-6 ">
+                      <label for="" class="col-form-label-lg block">Was the patient admitted to hospital?</label>
+                      <input type="radio" name="HospitalAdmitted" value="" id="Yes" class=""> Yes <br>
+                      <input type="radio" name="HospitalAdmitted" value="" id="No"> No
+                    </div>
+                  </div>
+
+                  <!-- 2nd row -->
+                  <div class="row radio">
+                    <div class="col-md-6 col-sm-6 ">
+                      <label for="" class="col-form-label-lg block">What type of seizure?</label>
+                      <input type="radio" name="SeizureType" value="" id="Convulsive" class=""> Convulsive <br>
+                      <input type="radio" name="SeizureType" value="" id="nonconvulsive"> Nonconvulsive
+                    </div>
+
+
+                    <div class="col-md-6 col-sm-6 ">
+                      <label for="" class="col-form-label-lg block">Seizures were controlled on:</label>
+                      <input type="radio" name="ControlleSeizure " value="" id="1st line" > 1st line <br>
+                      <input type="radio" name="ControlleSeizure" value="" id="2nd line"> 2nd line <br>
+                      <input type="radio" name="ControlleSeizure" value="" id="3rd line"> 3rd line
+                    </div>
+                  </div>
+
+                  <!-- 3rd row -->
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="col-form-label-lg">What precipitated SE?</label>
+                      <input type="text" name="" value="" class="form-control-lg form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                      <label class="col-form-label-lg">Specify AED on discharge:</label>
+                      <input type="text" name="" value="" class="form-control-lg form-control">
+                    </div>
+                    
+                  </div>
+
+                  <!-- fourth row -->
+                  <div class="row">
+                    <div class="col-md-4">
+                      <label class="col-form-label-lg">Duration of hospital stay?</label>
+                      <input type="text" name="" value="" class="form-control-lg form-control">
+                    </div>
+
+                    <div class="col-md-4">
+                      <label class="col-form-label-lg">Patient required intubation:</label>
+                      <input type="text" name="" value="" class="form-control-lg form-control">
+                    </div>
+                    
+                  </div>
+
+                </fieldset>
+              </form>
+
+              <form name="Etiology">
+                <fieldset class="main-info seizureHistory" style="margin-top: 40px;">
+                  <legend class="SeizureHistoryLegand">Etiology</legend>
+
+                  <div class="form-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="form-group ">
+                          <label for="Etiology" class="col-form-label-lg">Etiology</label>
+                          <select class="form-control form-control-lg selection" id="Etiology"> 
+                            <option>Idiopathic (genetic)</option>
+                            <option>Structural</option>
+                            <option>Metabolic</option>
+                            <option>Immune</option>
+                            <option>Infection</option>
+                            <option>Unknown</option>
+                            </select>
+                          </div>
+                      </div>
+
+
+                      <div class="col-md-3 col-sm-6">
+                        <div class="form-group ">
+                          <label for="pastHistory" class="col-form-label-lg">Structural(past history)</label>
+                          <select class="form-control form-control-lg selection" id="pastHistory"> 
+                            <option>Perinatal</option>
+                            <option>Post traumatic</option>
+                            <option>Post infection</option>
+                            <option>Cystic lesion</option>
+                            <option>Cerebral infarction</option>
+                            <option>AV malformation</option>
+                            <option>Tumors</option>
+                            <option>tuberous sclerosis</option>
+                            <option>Cortical dysplasia</option>
+                            <option>Hippocampal</option>
+                            <option>sclerosis</option>
+                            <option>Neurodegenerative</option>
+                            <option>Otherss</option>
+                            </select>
+                          </div>
+                      </div>
+                    
+                  </div>
+                  <div class="row">
+                    <div class="col-md-4"> 
+                      <label class="col-form-label-lg">Duration between brain lesion and onset of seizures:</label>
+                      <input type="text" name="" value="" class="form-control-lg form-control">
+                      
+                    </div>
+
+                    
+                  </div>
+
+
+                </fieldset>
+              </div>
+
+
+
+
+              <div class="mt-5 " style="text-align: center;">
+                  <a href="info.html" class="button btn btn-secondary" id="Back">
+                    
+                    <i class="fa fa-arrow-left"></i>
+                    Back
+                  </a>
+                  
+
+                  <a href="Follow-up.html" class="button btn btn-primary" id="Next">
+                    Next
+                    <i class="fa fa-arrow-right"></i>
+                  </a>
+
+                 
+                  
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+      </div>
+</body>
