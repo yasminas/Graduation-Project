@@ -47,8 +47,9 @@ public class PatientController {
     /**
      * Adding new patient
      **/
+    @CrossOrigin(origins = "*")
     @RequestMapping(value = "/addPatient", method = RequestMethod.POST)
-    public ResponseEntity<Boolean> Addpatient(@RequestBody Patient patient) {
+    public ResponseEntity<String> Addpatient(@RequestBody Patient patient) {
         return patientService.addpatient(patient);
     }
 
@@ -96,7 +97,7 @@ public class PatientController {
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value="/follow",method = RequestMethod.POST)
-    public ResponseEntity<Boolean> Addfollowup(@RequestBody FollowUp followup) {
+    public ResponseEntity<String> Addfollowup(@RequestBody FollowUp followup) {
         return  patientService.followup(followup);
     }
 

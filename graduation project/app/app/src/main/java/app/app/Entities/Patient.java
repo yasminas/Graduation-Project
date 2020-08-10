@@ -28,7 +28,9 @@ public class Patient {
     @Column
     private Integer Age;
     @Column
-    private Integer PNumber;
+    private String IDnum;
+    @Column
+    private String PNumber;
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
@@ -45,15 +47,34 @@ public class Patient {
     @Column
     private String Maritalstatus ;
     @Column
-    private Boolean Activedriving;
+    private String Activedriving;
     @Column
-    private Boolean FamilyConsanguinity ;
+    private String Handedness;
+    @Column
+    private String FamilyConsanguinity ;
+    @Column
+    private String  medications ;
+    @Column
+    private String  familycondition ;
+    @Column
+    private String  pasthistory ;
+    @Column
+    private String  neurologicalcondition ;
+    @Column
+    private String  fabrile ;
+    @Column
+    private String   describefebrile;
+    @Column
+    private String   ageofonset;
+
+
+
     @Column
     private Integer MenarcheAge ;
     @Column
     private Integer prepreg ;
     @Column
-    private Boolean seekpreg ;
+    private String seekpreg ;
     @Column
     private String Seizurefreedom ;
     @Column
@@ -276,15 +297,24 @@ public class Patient {
                    List<Comorbidities>  como,List<SurgicalProcedures> procedures,
                    List<AED>  aed,
                    String sex, Integer age, Integer Doctorid,
-                   Integer PNumber, String education, String occupation,
-                   String maritalstatus, Boolean activedriving, Boolean familyConsanguinity, Integer menarcheAge
-            , Integer prepreg, Boolean seekpreg, String seizurefreedom, String regularity
+                   String PNumber, String education, String  fabrile,String occupation,
+                   String maritalstatus,String  pasthistory, String activedriving, String familyConsanguinity, Integer menarcheAge
+            , Integer prepreg, String seekpreg, String seizurefreedom, String regularity
             , Integer prepregAED, String drugfertility, String folicAcid, String complianceAED,
                    String contraception, String currentPregnant, String changeAED, String catamEpilepsy,
-                   String menopause, String lactating, String threeD) {
+                   String menopause,String describefebrile,String   ageofonset,String  neurologicalcondition,String  familycondition, String lactating, String threeD,String IDnum,String Handedness,String  medications ) {
+         this.Handedness=Handedness;
+         this.IDnum=IDnum;
         this.FName = FName;
         this.MName = MName;
         this.LName = LName;
+        this.fabrile=fabrile;
+        this.describefebrile=describefebrile;
+        this.ageofonset=ageofonset;
+        this.neurologicalcondition=neurologicalcondition;
+        this.familycondition=familycondition;
+        this.medications=medications;
+        this.pasthistory=pasthistory;
         //DoctorID=Doctorid;
         this.como=como;
         this.specialhabits=specialhabits;
@@ -356,12 +386,20 @@ public class Patient {
         Age = age;
     }
 
-    public Integer getPNumber() {
+    public String getPNumber() {
         return PNumber;
     }
 
-    public void setPNumber(Integer PNumber) {
+    public void setPNumber(String PNumber) {
         this.PNumber = PNumber;
+    }
+
+    public String getIDnum() {
+        return IDnum;
+    }
+
+    public void setIDnum(String IDnum) {
+        this.IDnum = IDnum;
     }
 
     public String getEducation() {
@@ -388,19 +426,19 @@ public class Patient {
         Maritalstatus = maritalstatus;
     }
 
-    public Boolean getActivedriving() {
+    public String getActivedriving() {
         return Activedriving;
     }
 
-    public void setActivedriving(Boolean activedriving) {
+    public void setActivedriving(String activedriving) {
         Activedriving = activedriving;
     }
 
-    public Boolean getFamilyConsanguinity() {
+    public String getFamilyConsanguinity() {
         return FamilyConsanguinity;
     }
 
-    public void setFamilyConsanguinity(Boolean familyConsanguinity) {
+    public void setFamilyConsanguinity(String familyConsanguinity) {
         FamilyConsanguinity = familyConsanguinity;
     }
 
@@ -420,11 +458,11 @@ public class Patient {
         this.prepreg = prepreg;
     }
 
-    public Boolean getSeekpreg() {
+    public String getSeekpreg() {
         return seekpreg;
     }
 
-    public void setSeekpreg(Boolean seekpreg) {
+    public void setSeekpreg(String seekpreg) {
         this.seekpreg = seekpreg;
     }
 
@@ -563,6 +601,71 @@ public class Patient {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getHandedness() {
+        return Handedness;
+    }
+
+
+    public void setHandedness(String handedness) {
+        Handedness = handedness;
+    }
+
+    public String getMedications() {
+        return medications;
+    }
+
+    public void setMedications(String medications) {
+        this.medications = medications;
+    }
+
+    public String getFamilycondition() {
+        return familycondition;
+    }
+
+    public void setFamilycondition(String familycondition) {
+        this.familycondition = familycondition;
+    }
+
+    public String getPasthistory() {
+        return pasthistory;
+    }
+
+    public void setPasthistory(String pasthistory) {
+        this.pasthistory = pasthistory;
+    }
+
+    public String getNeurologicalcondition() {
+        return neurologicalcondition;
+    }
+
+    public void setNeurologicalcondition(String neurologicalcondition) {
+        this.neurologicalcondition = neurologicalcondition;
+    }
+
+    public String getFabrile() {
+        return fabrile;
+    }
+
+    public void setFabrile(String fabrile) {
+        this.fabrile = fabrile;
+    }
+
+    public String getDescribefebrile() {
+        return describefebrile;
+    }
+
+    public void setDescribefebrile(String describefebrile) {
+        this.describefebrile = describefebrile;
+    }
+
+    public String getAgeofonset() {
+        return ageofonset;
+    }
+
+    public void setAgeofonset(String ageofonset) {
+        this.ageofonset = ageofonset;
     }
 
     @Override

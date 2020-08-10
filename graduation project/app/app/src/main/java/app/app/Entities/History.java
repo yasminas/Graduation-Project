@@ -9,22 +9,30 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     @Column
-    private String Etiology;
+    private String seizures_greater_5min;
     @Column
-    private Boolean seizures_greater_5min;
-    @Column
-    private Boolean admition_to_hospital;
+    private String admition_to_hospital;
     @Column
     private String type_of_seizure;
     @Column
     private String AED_on_discharge;
     @Column
-    private String pasthistory;
+    private String seizurecontrol;
     @Column
-    private String fabrilehistory;
+    private String precipitated;
     @Column
-    private Integer brainlesionAge;
+    private String durationofstay;
+
+    @Column
+    private String intubation;
+    @Column
+    private String Etiology;
+    @Column
+    private String structural;
+    @Column
+    private String brainlesionAge;
 
 
 
@@ -47,15 +55,19 @@ public class History {
     }
 
 
-    public History(String etiology,Boolean seizures_greater_5min, Boolean admition_to_hospital, String type_of_seizure, String AED_on_discharge, String pasthistory, String fabrilehistory, Integer brainlesionAge,int p_id) {
+    public History(String etiology,String intubation,String seizurecontrol,String precipitated,String durationofstay,String structural,String seizures_greater_5min, String admition_to_hospital, String type_of_seizure, String AED_on_discharge,  String brainlesionAge,int p_id) {
         super();
         this.seizures_greater_5min = seizures_greater_5min;
+        this.structural=structural;
+        this.intubation=intubation;
+        this.precipitated=precipitated;
+        this.seizurecontrol=seizurecontrol;
+        this.durationofstay=durationofstay;
         Etiology=etiology;
         this.admition_to_hospital = admition_to_hospital;
         this.type_of_seizure = type_of_seizure;
         this.AED_on_discharge = AED_on_discharge;
-        this.pasthistory = pasthistory;
-        this.fabrilehistory = fabrilehistory;
+
         this.brainlesionAge = brainlesionAge;
         this.patient=new Patient(p_id);
     }
@@ -68,19 +80,19 @@ public class History {
         Etiology = etiology;
     }
 
-    public Boolean getSeizures_greater_5min() {
+    public String getSeizures_greater_5min() {
         return seizures_greater_5min;
     }
 
-    public void setSeizures_greater_5min(Boolean seizures_greater_5min) {
+    public void setSeizures_greater_5min(String seizures_greater_5min) {
         this.seizures_greater_5min = seizures_greater_5min;
     }
 
-    public Boolean getAdmition_to_hospital() {
+    public String getAdmition_to_hospital() {
         return admition_to_hospital;
     }
 
-    public void setAdmition_to_hospital(Boolean admition_to_hospital) {
+    public void setAdmition_to_hospital(String admition_to_hospital) {
         this.admition_to_hospital = admition_to_hospital;
     }
 
@@ -100,27 +112,61 @@ public class History {
         this.AED_on_discharge = AED_on_discharge;
     }
 
-    public String getPasthistory() {
-        return pasthistory;
-    }
 
-    public void setPasthistory(String pasthistory) {
-        this.pasthistory = pasthistory;
-    }
 
-    public String getFabrilehistory() {
-        return fabrilehistory;
-    }
-
-    public void setFabrilehistory(String fabrilehistory) {
-        this.fabrilehistory = fabrilehistory;
-    }
-
-    public Integer getBrainlesionAge() {
+    public String getBrainlesionAge() {
         return brainlesionAge;
     }
 
-    public void setBrainlesionAge(Integer brainlesionAge) {
+    public void setBrainlesionAge(String brainlesionAge) {
         this.brainlesionAge = brainlesionAge;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getSeizurecontrol() {
+        return seizurecontrol;
+    }
+
+    public void setSeizurecontrol(String seizurecontrol) {
+        this.seizurecontrol = seizurecontrol;
+    }
+
+    public String getPrecipitated() {
+        return precipitated;
+    }
+
+    public void setPrecipitated(String precipitated) {
+        this.precipitated = precipitated;
+    }
+
+    public String getDurationofstay() {
+        return durationofstay;
+    }
+
+    public void setDurationofstay(String durationofstay) {
+        this.durationofstay = durationofstay;
+    }
+
+    public String getIntubation() {
+        return intubation;
+    }
+
+    public void setIntubation(String intubation) {
+        this.intubation = intubation;
+    }
+
+    public String getStructural() {
+        return structural;
+    }
+
+    public void setStructural(String structural) {
+        this.structural = structural;
     }
 }

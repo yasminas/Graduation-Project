@@ -21,18 +21,20 @@ public class Seizure {
     @Column
     private String Duration;
     @Column
-    private Integer Number;
+    private String Number;
     @Column
     private String Triggertype;
     @Column
     private String Longest_period;
 
     @Column
-    private Boolean symptom_appearance;
+    private String symptom_appearance;
     @Column
     private String CircadianRhythm;
     @Column
-    private Boolean Tendency_to_cluster ;
+    private String Tendency_to_cluster ;
+    @Column
+    private String postictal ;
 
     @Column
     private String events_genuine;
@@ -140,10 +142,11 @@ public class Seizure {
     }
 
 
-    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String mode,String semiology,  String duration, Integer number, String triggertype, String longest_period, Boolean symptom_appearance, String circadianRhythm, Boolean tendency_to_cluster, String events_genuine, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description,int p_id) {
+    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String postictal,String mode,String semiology,  String duration, String number, String triggertype, String longest_period, String symptom_appearance, String circadianRhythm, String tendency_to_cluster, String events_genuine, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description,int p_id) {
         super();
         Semiology = semiology;
         Mode=mode;
+        this.postictal=postictal;
         this.focalMotors = focalMotors;
         this.focalnonMotors = focalnonMotors;
         this.generalizedMotors=generalizedMotors;
@@ -193,11 +196,11 @@ public class Seizure {
         Duration = duration;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return Number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         Number = number;
     }
 
@@ -225,11 +228,11 @@ public class Seizure {
         this.id = id;
     }
 
-    public Boolean getSymptom_appearance() {
+    public String getSymptom_appearance() {
         return symptom_appearance;
     }
 
-    public void setSymptom_appearance(Boolean symptom_appearance) {
+    public void setSymptom_appearance(String symptom_appearance) {
         this.symptom_appearance = symptom_appearance;
     }
 
@@ -241,11 +244,11 @@ public class Seizure {
         CircadianRhythm = circadianRhythm;
     }
 
-    public Boolean getTendency_to_cluster() {
+    public String getTendency_to_cluster() {
         return Tendency_to_cluster;
     }
 
-    public void setTendency_to_cluster(Boolean tendency_to_cluster) {
+    public void setTendency_to_cluster(String tendency_to_cluster) {
         Tendency_to_cluster = tendency_to_cluster;
     }
 
@@ -299,13 +302,12 @@ public class Seizure {
     }
 
 
+    public String getPostictal() {
+        return postictal;
+    }
 
-
-
-
-
-
-
-
+    public void setPostictal(String postictal) {
+        this.postictal = postictal;
+    }
 }
 

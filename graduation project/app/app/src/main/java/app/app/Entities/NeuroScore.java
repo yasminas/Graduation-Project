@@ -3,7 +3,6 @@ package app.app.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 public class NeuroScore {
@@ -11,11 +10,11 @@ public class NeuroScore {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private Integer id;
         @Column
-        private Date Date;
+        private String Date;
         @Column
         private String Test;
         @Column
-        private Integer Score;
+        private String Score;
 
 
 
@@ -40,7 +39,7 @@ public class NeuroScore {
     }
 
 
-    public NeuroScore(Date date, Integer score,String test,int p_id) {
+    public NeuroScore(String date, String score,String test,int p_id) {
         super();
         Date = date;
         Test =test;
@@ -56,11 +55,11 @@ public class NeuroScore {
         this.id = id;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         Date = date;
     }
 
@@ -72,11 +71,12 @@ public class NeuroScore {
         Test = test;
     }
 
-    public Integer getScore() {
+    public String getScore() {
         return Score;
     }
 
-    public void setScore(Integer score) {
+    public void setScore(String score) {
         Score = score;
     }
+
 }

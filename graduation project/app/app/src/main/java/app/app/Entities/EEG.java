@@ -20,21 +20,23 @@ public class EEG {
     @Column
     private String Reason ;
     @Column
-    private Integer Frequency_of_PDR ;
+    private String Frequency_of_PDR ;
     @Column
-    private Boolean Posteriorrhythm ;
+    private String Posteriorrhythm ;
     @Column
     private String Source_of_EEG;
     @Column
     private String Behavioral_recorded ;
+    @Column
     private String ReasonProvocative_measures ;
     @Column
-    private Integer number_of_seizures ;
+    private String number_of_seizures ;
 
     @Column
     private String Dischargelocation;
     @Column
     private String Localizedside ;
+
 
     @Column
     private String Interictal_Circumstances;
@@ -53,14 +55,27 @@ public class EEG {
     @Column
     private String Ictal_with ;
     @Column
-    private Boolean Focal_slowing;
+    private String Focal_slowing;
     @Column
     private String Attenuation ;
     @Column
     private String EEG_slowing;
     @Column
     private String Report ;
-
+    @Column
+    private String localizedlobe ;
+    @Column
+    private String location ;
+    @Column
+    private String side ;
+    @Column
+    private String generalisedslowing ;
+    @Column
+    private String lobe ;
+    @Column
+    private String specify ;
+    @Column
+    private String comments ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn
@@ -81,9 +96,16 @@ public class EEG {
     }
 
 
-    public EEG(String result,String type, String date, String scalpEEG, String reason, Integer frequency_of_PDR, Boolean posteriorrhythm, String source_of_EEG, String behavioral_recorded, String reasonProvocative_measures, Integer number_of_seizures, String dischargelocation, String localizedside, String interictal_Circumstances, String interictal_frequency, String interictal_special_pattern, String ictal_abnormalities, String same_icatal_features, String ictal_location, String ictal_pattern, String ictal_with, Boolean focal_slowing, String attenuation, String EEG_slowing, String report,int p_id) {
+    public EEG(String result,String type,String lobe,String comments,String specify ,String generalisedslowing,String side ,String location,String localizedlobe, String date, String scalpEEG, String reason, String frequency_of_PDR, String posteriorrhythm, String source_of_EEG, String behavioral_recorded, String reasonProvocative_measures, String number_of_seizures, String dischargelocation, String localizedside, String interictal_Circumstances, String interictal_frequency, String interictal_special_pattern, String ictal_abnormalities, String same_icatal_features, String ictal_location, String ictal_pattern, String ictal_with, String focal_slowing, String attenuation, String EEG_slowing, String report,int p_id) {
         super();
         Result = result;
+        this.localizedlobe=localizedlobe;
+        this.location=location;
+        this.side=side;
+        this.generalisedslowing=generalisedslowing;
+        this.lobe=lobe;
+        this.specify=specify;
+        this.comments=comments;
         Type=type;
         Date = date;
         ScalpEEG = scalpEEG;
@@ -151,19 +173,19 @@ public class EEG {
         Reason = reason;
     }
 
-    public Integer getFrequency_of_PDR() {
+    public String getFrequency_of_PDR() {
         return Frequency_of_PDR;
     }
 
-    public void setFrequency_of_PDR(Integer frequency_of_PDR) {
+    public void setFrequency_of_PDR(String frequency_of_PDR) {
         Frequency_of_PDR = frequency_of_PDR;
     }
 
-    public Boolean getPosteriorrhythm() {
+    public String getPosteriorrhythm() {
         return Posteriorrhythm;
     }
 
-    public void setPosteriorrhythm(Boolean posteriorrhythm) {
+    public void setPosteriorrhythm(String posteriorrhythm) {
         Posteriorrhythm = posteriorrhythm;
     }
 
@@ -191,11 +213,11 @@ public class EEG {
         ReasonProvocative_measures = reasonProvocative_measures;
     }
 
-    public Integer getNumber_of_seizures() {
+    public String getNumber_of_seizures() {
         return number_of_seizures;
     }
 
-    public void setNumber_of_seizures(Integer number_of_seizures) {
+    public void setNumber_of_seizures(String number_of_seizures) {
         this.number_of_seizures = number_of_seizures;
     }
 
@@ -279,11 +301,11 @@ public class EEG {
         Ictal_with = ictal_with;
     }
 
-    public Boolean getFocal_slowing() {
+    public String getFocal_slowing() {
         return Focal_slowing;
     }
 
-    public void setFocal_slowing(Boolean focal_slowing) {
+    public void setFocal_slowing(String focal_slowing) {
         Focal_slowing = focal_slowing;
     }
 
@@ -317,5 +339,62 @@ public class EEG {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+
+    public String getLocalizedlobe() {
+        return localizedlobe;
+    }
+
+    public void setLocalizedlobe(String localizedlobe) {
+        this.localizedlobe = localizedlobe;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getSide() {
+        return side;
+    }
+
+    public void setSide(String side) {
+        this.side = side;
+    }
+
+    public String getGeneralisedslowing() {
+        return generalisedslowing;
+    }
+
+    public void setGeneralisedslowing(String generalisedslowing) {
+        this.generalisedslowing = generalisedslowing;
+    }
+
+    public String getLobe() {
+        return lobe;
+    }
+
+    public void setLobe(String lobe) {
+        this.lobe = lobe;
+    }
+
+    public String getSpecify() {
+        return specify;
+    }
+
+    public void setSpecify(String specify) {
+        this.specify = specify;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 }

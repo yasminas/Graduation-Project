@@ -13,6 +13,8 @@ public class Test {
     @Column
     private String TestType;
     @Column
+    private String date;
+    @Column
     private String labName;
     @Column
     private String labAddress;
@@ -47,9 +49,10 @@ public class Test {
 
 
 
-   public Test(String TestType, String labName, String labAddress,int p_id) {
+   public Test(String TestType, String labName,String date, String labAddress,int p_id) {
        super();
         this.labName = labName;
+        this.date=date;
         this.labAddress = labAddress;
         this.TestType=TestType;
        this.patient=new Patient(p_id);
@@ -88,5 +91,11 @@ public class Test {
         TestType = testType;
     }
 
+    public String getDate() {
+        return date;
+    }
 
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

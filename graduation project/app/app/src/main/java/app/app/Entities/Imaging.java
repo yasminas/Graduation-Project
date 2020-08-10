@@ -14,15 +14,14 @@ public class Imaging {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @Column
-    private String Final_impression;
+
 
     @Column
     private String Date;
     @Column
     private String Sequences;
     @Column
-    private Boolean Contrast_enhancement;
+    private String Contrast_enhancement;
     @Column
     private String Results;
     @Column
@@ -37,6 +36,28 @@ public class Imaging {
     private String Details;
     @Column
     private String Report;
+
+    @Column
+    private String  diagnosis;
+    @Column
+    private String  ageofonset;
+    @Column
+    private String  etiology;
+    @Column
+    private String  classification;
+    @Column
+    private String  syndrome;
+    @Column
+    private String  finaldiagnosis;
+    @Column
+    private String  comments;
+    @Column
+    private String  counselling;
+
+
+
+
+
 
 
 
@@ -76,9 +97,16 @@ private Patient patient;
     }
 
 
-    public Imaging(String result,String final_impression,List<Features> features, String date, String sequences, Boolean contrast_enhancement, String lateralization, String distribution, String location_cortical, String location_subcortical, String details, String report,int p_id) {
+    public Imaging(String result,String  diagnosis, String counselling,String comments, String  syndrome,String finaldiagnosis,String classification,String etiology,String ageofonset,List<Features> features, String date, String sequences, String contrast_enhancement, String lateralization, String distribution, String location_cortical, String location_subcortical, String details, String report,int p_id) {
         super();
-        Final_impression = final_impression;
+       this.diagnosis=diagnosis;
+       this.syndrome=syndrome;
+       this.etiology=etiology;
+       this.ageofonset=ageofonset;
+       this.finaldiagnosis=finaldiagnosis;
+       this.classification=classification;
+       this.comments=comments;
+       this.counselling=counselling;
         Results=result;
         Date = date;
        this.features=features;
@@ -102,13 +130,7 @@ private Patient patient;
         this.id = id;
     }
 
-    public String getFinal_impression() {
-        return Final_impression;
-    }
 
-    public void setFinal_impression(String final_impression) {
-        Final_impression = final_impression;
-    }
 
     public String getDate() {
         return Date;
@@ -126,11 +148,11 @@ private Patient patient;
         Sequences = sequences;
     }
 
-    public Boolean getContrast_enhancement() {
+    public String getContrast_enhancement() {
         return Contrast_enhancement;
     }
 
-    public void setContrast_enhancement(Boolean contrast_enhancement) {
+    public void setContrast_enhancement(String contrast_enhancement) {
         Contrast_enhancement = contrast_enhancement;
     }
 
@@ -188,5 +210,69 @@ private Patient patient;
 
     public void setReport(String report) {
         Report = report;
+    }
+
+    public String getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public String getAgeofonset() {
+        return ageofonset;
+    }
+
+    public void setAgeofonset(String ageofonset) {
+        this.ageofonset = ageofonset;
+    }
+
+    public String getEtiology() {
+        return etiology;
+    }
+
+    public void setEtiology(String etiology) {
+        this.etiology = etiology;
+    }
+
+    public String getClassification() {
+        return classification;
+    }
+
+    public void setClassification(String classification) {
+        this.classification = classification;
+    }
+
+    public String getSyndrome() {
+        return syndrome;
+    }
+
+    public void setSyndrome(String syndrome) {
+        this.syndrome = syndrome;
+    }
+
+    public String getFinaldiagnosis() {
+        return finaldiagnosis;
+    }
+
+    public void setFinaldiagnosis(String finaldiagnosis) {
+        this.finaldiagnosis = finaldiagnosis;
+    }
+
+    public String getComments() {
+        return comments;
+    }
+
+    public void setComments(String comments) {
+        this.comments = comments;
+    }
+
+    public String getCounselling() {
+        return counselling;
+    }
+
+    public void setCounselling(String counselling) {
+        this.counselling = counselling;
     }
 }

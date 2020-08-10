@@ -33,24 +33,29 @@ public List<Patient> getAllPatient()
 
 
 /**creating**/
-  public ResponseEntity<Boolean> addpatient(Patient patient)
+  public ResponseEntity<String> addpatient(Patient patient)
     {
 
-        ResponseEntity<Boolean> response;
+        ResponseEntity<String> response;
 
 
         patientRepo.save(patient);
 
-        response = new ResponseEntity<>(true, HttpStatus.OK);
+        response = new ResponseEntity<>("true", HttpStatus.OK);
+        System.out.println("kolo 100 100 ");
+
         return response;
     }
 
-    public ResponseEntity<Boolean> followup(FollowUp followup)
+    public ResponseEntity<String> followup(FollowUp followup)
     {
 
-        ResponseEntity<Boolean> response;
+        ResponseEntity<String> response;
         followrepo.save(followup);
-        response = new ResponseEntity<>(true, HttpStatus.OK);
+
+        response = new ResponseEntity<>("true", HttpStatus.OK);
+        System.out.println("kolo 100 100 ");
+
         return response;
     }
 

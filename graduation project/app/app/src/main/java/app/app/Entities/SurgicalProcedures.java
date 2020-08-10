@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.util.List;
 
 @Entity
@@ -18,7 +17,7 @@ public class SurgicalProcedures {
     @Column
     private String Type;
     @Column
-    private Date Date;
+    private String Date;
     @Column
     private String Side;
     @Column
@@ -45,7 +44,7 @@ public class SurgicalProcedures {
         super();
     }
 
-    public SurgicalProcedures(String type, Date date, String side, String intraoperative_EcoG, String pathology, List<Patient> patient) {
+    public SurgicalProcedures(String type, String date, String side, String intraoperative_EcoG, String pathology, List<Patient> patient) {
         Type = type;
         Date = date;
         Side = side;
@@ -70,11 +69,11 @@ public class SurgicalProcedures {
         Type = type;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return Date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         Date = date;
     }
 

@@ -79,6 +79,9 @@ public class DoctorServices {
 
             return response;
         }
+
+
+
     }
     private String hashPassword(String plainTextPassword){
         return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());
