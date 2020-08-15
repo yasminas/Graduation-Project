@@ -70,7 +70,7 @@ public class DoctorServices {
             //temp=temp1;
             // temp1.setCode(code);
             //Doctorrepo.save(temp);
-            response = new ResponseEntity<>("login Asuccessfully", HttpStatus.OK);
+           response= new ResponseEntity<>("login Asuccessfully", HttpStatus.OK);
             System.out.println("kolo 100 100 ");
             return response;
         } else {
@@ -79,6 +79,7 @@ public class DoctorServices {
 
             return response;
         }
+
 
 
 

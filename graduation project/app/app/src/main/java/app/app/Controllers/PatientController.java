@@ -63,7 +63,7 @@ public class PatientController {
         Patient patient = patientRepo.findById(id);
         patientRepo.delete(patient);
         Entities.addAttribute("patients", patientRepo.findAll());
-        return "index";   /**elpage elle hy view feha el list kolha**/
+        return "index.html";   /**elpage elle hy view feha el list kolha**/
 
     }
 

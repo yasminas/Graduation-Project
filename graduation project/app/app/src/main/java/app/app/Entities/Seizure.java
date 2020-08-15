@@ -32,12 +32,11 @@ public class Seizure {
     @Column
     private String CircadianRhythm;
     @Column
-    private String Tendency_to_cluster ;
+    private String specify ;
     @Column
     private String postictal ;
 
-    @Column
-    private String events_genuine;
+
     @Column
     private String Frequency_before_AED ;
     @Column
@@ -142,7 +141,7 @@ public class Seizure {
     }
 
 
-    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String postictal,String mode,String semiology,  String duration, String number, String triggertype, String longest_period, String symptom_appearance, String circadianRhythm, String tendency_to_cluster, String events_genuine, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description,int p_id) {
+    public Seizure(List<FocalMotor> focalMotors,List<FocalnonMotor> focalnonMotors,List<ASSFeatures> assfeatures,List<Classification> classification,List<GeneralizednonMotor> GeneralizednonMotors,List<Generalizedmotor> generalizedMotors,String postictal,String mode,String semiology,  String duration, String number, String triggertype, String longest_period, String symptom_appearance, String circadianRhythm, String specify, String frequency_before_AED, String frequency_after_AED, String age_of_onset, String age_of_onset_fabrile, String fabrile_description,int p_id) {
         super();
         Semiology = semiology;
         Mode=mode;
@@ -160,8 +159,8 @@ public class Seizure {
 
         this.symptom_appearance = symptom_appearance;
         CircadianRhythm = circadianRhythm;
-        Tendency_to_cluster = tendency_to_cluster;
-        this.events_genuine = events_genuine;
+        this.specify=specify;
+
         Frequency_before_AED = frequency_before_AED;
         Frequency_after_AED = frequency_after_AED;
         Age_of_onset = age_of_onset;
@@ -244,20 +243,12 @@ public class Seizure {
         CircadianRhythm = circadianRhythm;
     }
 
-    public String getTendency_to_cluster() {
-        return Tendency_to_cluster;
+    public String getSpecify() {
+        return specify;
     }
 
-    public void setTendency_to_cluster(String tendency_to_cluster) {
-        Tendency_to_cluster = tendency_to_cluster;
-    }
-
-    public String getEvents_genuine() {
-        return events_genuine;
-    }
-
-    public void setEvents_genuine(String events_genuine) {
-        this.events_genuine = events_genuine;
+    public void setSpecify(String specify) {
+        this.specify = specify;
     }
 
     public String getFrequency_before_AED() {

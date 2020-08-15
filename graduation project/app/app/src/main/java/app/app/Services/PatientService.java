@@ -35,15 +35,9 @@ public List<Patient> getAllPatient()
 /**creating**/
   public ResponseEntity<String> addpatient(Patient patient)
     {
-
         ResponseEntity<String> response;
-
-
         patientRepo.save(patient);
-
         response = new ResponseEntity<>("true", HttpStatus.OK);
-        System.out.println("kolo 100 100 ");
-
         return response;
     }
 

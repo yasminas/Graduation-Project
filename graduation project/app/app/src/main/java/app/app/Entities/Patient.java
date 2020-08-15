@@ -38,8 +38,7 @@ public class Patient {
     @Column
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
-    @Column
-    private Integer DoctorID;
+
     @Column
     private String Education;
     @Column
@@ -101,6 +100,8 @@ public class Patient {
     private String Lactating ;
     @Column
     private String ThreeD  ;
+    @Column
+    private String abortions  ;
 
 
 
@@ -296,7 +297,7 @@ public class Patient {
     public Patient(String FName, String MName, String LName, Set<SpecialHabits> specialhabits,
                    List<Comorbidities>  como,List<SurgicalProcedures> procedures,
                    List<AED>  aed,
-                   String sex, Integer age, Integer Doctorid,
+                   String sex, Integer age, String abortions,
                    String PNumber, String education, String  fabrile,String occupation,
                    String maritalstatus,String  pasthistory, String activedriving, String familyConsanguinity, Integer menarcheAge
             , Integer prepreg, String seekpreg, String seizurefreedom, String regularity
@@ -309,6 +310,7 @@ public class Patient {
         this.MName = MName;
         this.LName = LName;
         this.fabrile=fabrile;
+        this.abortions=abortions;
         this.describefebrile=describefebrile;
         this.ageofonset=ageofonset;
         this.neurologicalcondition=neurologicalcondition;
@@ -579,12 +581,12 @@ public class Patient {
         this.id = id;
     }
 
-    public Integer getDoctorID() {
-        return DoctorID;
+    public String getAbortions() {
+        return abortions;
     }
 
-    public void setDoctorID(Integer doctorID) {
-        DoctorID = doctorID;
+    public void setAbortions(String abortions) {
+        this.abortions = abortions;
     }
 
     public Date getCreatedAt() {
@@ -670,7 +672,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient[id=" + id + ",DoctorID=" + DoctorID + ", FName=" + FName + ", MName=" + MName + ", LName=" + LName
+        return "Patient[id=" + id + ",DoctorID="  + ", FName=" + FName + ", MName=" + MName + ", LName=" + LName
                 + " , Sex=" + Sex + ", Age=" + Age + ", PNumber=" + PNumber + ", createdAt=" + createdAt + "" +
                 ", updatedAt=" + updatedAt + ", Education=" + Education + ", Occupation=" + Occupation + ", Maritalstatus=" + Maritalstatus + "" +
                 ", Activedriving=" + Activedriving + ", FamilyConsanguinity=" + FamilyConsanguinity + ", MenarcheAge=" + MenarcheAge + "" +
